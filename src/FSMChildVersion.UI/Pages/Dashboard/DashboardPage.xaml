@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<mvxViews:MvxContentPage
+    x:Class="FSMChildVersion.Core.Pages.Dashboard.DashboardPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FSMChildVersion.Core.Pages.Dashboard"
+    xmlns:mvxViews="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:viewModel="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
+    x:TypeArguments="viewModel:DashboardPageViewModel">
+    <ScrollView>
+        <StackLayout
+            Margin="30,0,30,0"
+            HorizontalOptions="FillAndExpand"
+            Orientation="Vertical"
+            VerticalOptions="StartAndExpand">
+            <Button
+                Margin="10"
+                Command="{Binding FarmerVisitCommand}"
+                Style="{StaticResource MainButtonStyle}"
+                Text="Farmer-Visit" />
+            <Button
+                Margin="10"
+                Command="{Binding NewInformationCommand}"
+                Style="{StaticResource MainButtonStyle}"
+                Text="New-Information" />
+            <Button
+                Margin="10"
+                Command="{Binding CustomerJobsCommand}"
+                Style="{StaticResource MainButtonStyle}"
+                Text="Customer Jobs" />
+        </StackLayout>
+    </ScrollView>
+</mvxViews:MvxContentPage>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<mvxViews:MvxContentPage
+    x:Class="FSMChildVersion.Core.Pages.Attendance.AttendancePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
+    xmlns:mvxViews="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    x:TypeArguments="local:AttendanceViewModel">
+    <ScrollView>
+        <StackLayout
+            Margin="30,0,30,0"
+            HorizontalOptions="FillAndExpand"
+            Orientation="Vertical"
+            VerticalOptions="StartAndExpand">
+            <Label
+                FontSize="24"
+                HorizontalOptions="CenterAndExpand"
+                Text="Check-In-Out"
+                TextColor="{StaticResource LightGreenColor}"
+                VerticalOptions="Start" />
+            <Button
+                Margin="10"
+                Style="{StaticResource MainButtonStyle}"
+                Text="Check-In" />
+            <Button
+                Margin="10"
+                Style="{StaticResource MainButtonStyle}"
+                Text="Check-Out" />
+        </StackLayout>
+    </ScrollView>
+</mvxViews:MvxContentPage>

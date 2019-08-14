@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<mvxViews:MvxContentPage
+    x:Class="FSMChildVersion.Core.Pages.Home.MenuPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:farmer="clr-namespace:FSMChildVersion.Core.Pages.Dashboard.Farmer"
+    xmlns:local="clr-namespace:FSMChildVersion.Core.Pages.Home"
+    xmlns:mvxViews="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:viewModels="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
+    Title="User Profile"
+    x:TypeArguments="viewModels:MenuViewModel">
+    <!--<StackLayout>
+        <ListView x:Name="listView" x:FieldModifier="public">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type local:}">
+                    <farmer:AddNewFarmerPage Title="Add New Farmer" />
+                    <farmer:ViewFarmerPage Title="View Farmer" />
+                    <farmer:FieldDayPage Title="Field Day" />
+    -->
+    <!--<farmer:FarmerMeetingPage Title="Add New Farmer" />-->
+    <!--
+                    <farmer:StockReportPage Title="Stock Report" />
+    -->
+    <!--<farmer:OrdersPage Title="Orders" />-->
+    <!--
+                    <farmer:RoutPlanPage Title="Rout Plan" />
+                    <farmer:LeavePanelPage Title="Apply For Leave" />
+                    <farmer:FeedbackPage Title="Feedback" />
+                </x:Array>
+            </ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical">
+                            <Label
+                                Grid.Column="1"
+                                HorizontalOptions="Start"
+                                Text="{Binding Title}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>-->
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HeightRequest="40">
+                <StackLayout.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <On Platform="Android, iOS" Value="True" />
+                    </OnPlatform>
+                </StackLayout.IsVisible>
+                <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0,20,0,0" />
+                    </OnPlatform>
+                </StackLayout.Margin>
+                <Label
+                    Margin="10"
+                    FontSize="Large"
+                    Text="HamburgerMenu Demo"
+                    VerticalOptions="Center" />
+            </StackLayout>
+            <ListView
+                x:Name="MenuList"
+                ItemsSource="{Binding MenuItemList}"
+                SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}">
+                <!--<ListView.Behaviors>
+                    <behaviors:EventHandlerBehavior EventName="ItemSelected">
+                        <behaviors:InvokeCommandAction
+                            Command="{Binding BindingContext.DataContext.ShowDetailPageAsyncCommand,
+                            Source={x:Reference MainContent}}"></behaviors:InvokeCommandAction>
+                        </behaviors:EventHandlerBehavior>
+                </ListView.Behaviors>-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout HeightRequest="50">
+                                <Label
+                                    Margin="20,0,0,0"
+                                    Text="{Binding}"
+                                    VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</mvxViews:MvxContentPage>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="FSMChildVersion.Core.ResourceDictionaries.ThemeOne.StyleThemeOne"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:styles="clr-namespace:FSMChildVersion.Core.ResourceDictionaries.ThemeOne"
+    mc:Ignorable="d">
+    <ResourceDictionary.MergedDictionaries>
+        <styles:ColorThemeOne />
+    </ResourceDictionary.MergedDictionaries>
+
+    <OnPlatform
+        x:Key="PageSpacing"
+        x:TypeArguments="x:Double"
+        Android="10"
+        iOS="10" />
+    <OnPlatform
+        x:Key="PagePadding"
+        x:TypeArguments="Thickness"
+        Android="10"
+        iOS="10" />
+
+    <x:Double x:Key="FontSize30">30</x:Double>
+    <x:Double x:Key="FontSize48">48</x:Double>
+
+    <x:Double x:Key="WidthHeightOFUploadButton">110</x:Double>
+
+    <Style x:Key="UploadButtonStyle" TargetType="Button">
+        <Setter Property="HeightRequest" Value="36" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
+    </Style>
+
+    <Style x:Key="MainButtonStyle" TargetType="Button">
+        <Setter Property="HeightRequest" Value="45" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
+    </Style>
+
+    <Style x:Key="DefaultMarginForStacklayoutStyle" TargetType="StackLayout">
+        <Setter Property="Margin" Value="30,0,30,0" />
+    </Style>
+
+    <Style x:Key="MainEntryStyle" TargetType="Entry">
+        <Setter Property="HeightRequest" Value="35" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="TextColor" Value="{StaticResource Primary}" />
+        <Setter Property="PlaceholderColor" Value="Gray" />
+    </Style>
+
+    <Style x:Key="MainTitleStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="17" />
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+    </Style>
+
+    <Style x:Key="NormalTitleStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+    </Style>
+
+
+</ResourceDictionary>
