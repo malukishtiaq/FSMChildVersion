@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<mvxViews:MvxContentPage
-    x:Class="FSMChildVersion.Core.Pages.Dashboard.Farmer.FeedbackPage"
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:FSMChildVersion.Core.Pages.Dashboard.Farmer"
-    xmlns:mvxViews="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
-    xmlns:viewModel="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
-    x:TypeArguments="viewModel:FeedbackViewModel" />

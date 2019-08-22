@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<mvxViews:MvxContentPage
+    x:Class="FSMChildVersion.UI.Pages.RoutPlan.RoutPlanPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FSMChildVersion.UI.Pages.Farmer"
+    xmlns:mvxViews="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:pages="clr-namespace:FSMChildVersion.UI.Pages"
+    xmlns:viewModel="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
+    x:TypeArguments="viewModel:RoutPlanViewModel"
+    NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ContentView>
+                <pages:Header />
+            </ContentView>
+            <StackLayout
+                Margin="30,30,30,0"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Vertical"
+                Spacing="5"
+                VerticalOptions="StartAndExpand">
+                <Button
+                    Clicked="DetailsCommandAsync"
+                    Style="{StaticResource MainButtonStyle}"
+                    Text="Saturday" />
+                <Button
+                    Clicked="DetailsCommandAsync"
+                    Style="{StaticResource MainButtonStyle}"
+                    Text="Sunday" />
+                <Button
+                    Clicked="DetailsCommandAsync"
+                    Style="{StaticResource MainButtonStyle}"
+                    Text="Monday" />
+                <Button
+                    Clicked="DetailsCommandAsync"
+                    Style="{StaticResource MainButtonStyle}"
+                    Text="Tuesday" />
+                <Button
+                    Clicked="DetailsCommandAsync"
+                    Style="{StaticResource MainButtonStyle}"
+                    Text="Wednesday" />
+                <Button
+                    Clicked="DetailsCommandAsync"
+                    Style="{StaticResource MainButtonStyle}"
+                    Text="Thursday" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</mvxViews:MvxContentPage>

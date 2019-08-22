@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="FSMChildVersion.UI.Pages.Popups.RoutDetails"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    BackgroundInputTransparent="False"
+    CloseWhenBackgroundIsClicked="True"
+    FlowDirection="MatchParent"
+    mc:Ignorable="d">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinInOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <Frame
+        Margin="10"
+        Padding="0"
+        BorderColor="Transparent"
+        CornerRadius="5"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="CenterAndExpand">
+        <StackLayout
+            Margin="0,0,0,50"
+            Padding="0"
+            BackgroundColor="White"
+            HorizontalOptions="FillAndExpand"
+            Spacing="0"
+            VerticalOptions="CenterAndExpand">
+            <Frame
+                Margin="0"
+                Padding="0"
+                BackgroundColor="White"
+                BorderColor="LightGray"
+                HasShadow="False"
+                HorizontalOptions="FillAndExpand">
+                <StackLayout
+                    Margin="0,0,0,30"
+                    Padding="20"
+                    Spacing="0">
+                    <Frame
+                        Margin="0,10,0,0"
+                        Padding="10"
+                        BackgroundColor="White"
+                        BorderColor="LightGray"
+                        HasShadow="False"
+                        HorizontalOptions="FillAndExpand">
+                        <Label
+                            FontAttributes="Bold"
+                            Text="Rout Plan"
+                            TextColor="Black" />
+                    </Frame>
+                    <Frame
+                        Margin="0"
+                        Padding="10"
+                        BackgroundColor="White"
+                        BorderColor="LightGray"
+                        HasShadow="False"
+                        HorizontalOptions="FillAndExpand">
+                        <Label HorizontalTextAlignment="Center" Text="Add Bashirabad, Mogli, Joher Town, Mogli, Joher Town" />
+                    </Frame>
+                </StackLayout>
+            </Frame>
+            <Button
+                Margin="10"
+                BackgroundColor="#D7554E"
+                Clicked="Button_Clicked"
+                HorizontalOptions="CenterAndExpand"
+                Text="CLOSE"
+                TextColor="White"
+                VerticalOptions="End" />
+        </StackLayout>
+    </Frame>
+</pages:PopupPage>

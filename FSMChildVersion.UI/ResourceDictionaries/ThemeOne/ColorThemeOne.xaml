@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="FSMChildVersion.UI.ResourceDictionaries.ThemeOne.ColorThemeOne"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Color x:Key="PrimaryColor">#8a068a</Color>
+    <Color x:Key="BlackColor">#000000</Color>
+    <Color x:Key="SecondaryTextColor">#8E8F93</Color>
+    <Color x:Key="GreenColor">#32A060</Color>
+    <Color x:Key="DarkGreenColor">#28804C</Color>
+    <Color x:Key="LightGreenColor">#249a94</Color>
+    <Color x:Key="ErrorColor">Red</Color>
+
+</ResourceDictionary>

@@ -1,3 +1,4 @@
+using MvvmCross;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace FSMChildVersion.Repository.SQLite
         private readonly SQLiteAsyncConnection dBConnection;
         public Repository()
         {
-            dBConnection = new SQLiteAsyncConnection(Config.LocalDBFile);
+            dBConnection = Mvx.IoCProvider.Resolve<ISQLiteSetup>().GetDBConnection();
         }
 
         public AsyncTableQuery<T> AsQueryable()
@@ -26,7 +27,7 @@ namespace FSMChildVersion.Repository.SQLite
 
         public Task<List<T>> Get<TValue>(Expression<Func<T, bool>> predicate = null, Expression<Func<T, TValue>> orderBy = null)
         {
-            var query = dBConnection.Table<T>();
+            AsyncTableQuery<T> query = dBConnection.Table<T>();
 
             if (predicate != null)
                 query = query.Where(predicate);

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<mvxViews:MvxContentPage
+    x:Class="FSMChildVersion.UI.Pages.Leaves.LeavePanelPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customcontrols="clr-namespace:FSMChildVersion.UI.CustomControls"
+    xmlns:local="clr-namespace:FSMChildVersion.UI.Pages.Farmer"
+    xmlns:mvxViews="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:pages="clr-namespace:FSMChildVersion.UI.Pages"
+    xmlns:viewModel="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
+    x:TypeArguments="viewModel:LeavePanelViewModel"
+    NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ContentView>
+                <pages:Header />
+            </ContentView>
+            <StackLayout
+                Margin="30"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Vertical"
+                Style="{StaticResource DefaultMarginForStacklayoutStyle}"
+                VerticalOptions="StartAndExpand">
+                <customcontrols:CustomPicker
+                    Title="Select Leave"
+                    Margin="10"
+                    Image="ic_arrow_drop_down"
+                    ItemsSource="{Binding Roles}"
+                    SelectedIndex="{Binding SelectedRole}"
+                    TextColor="White" />
+                <StackLayout Margin="10" Orientation="Horizontal">
+                    <Label Text="From" VerticalTextAlignment="End" />
+                    <DatePicker HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <StackLayout Margin="10" Orientation="Horizontal">
+                    <Label Text="To" VerticalTextAlignment="End" />
+                    <DatePicker
+                        Margin="20,0,0,0"
+                        FlowDirection="RightToLeft"
+                        HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+
+                <Label Margin="10" Text="Reason For Leave" />
+                <Editor Margin="10,0,10,0" HeightRequest="75" />
+
+                <Button
+                    Margin="10"
+                    Style="{StaticResource MainButtonStyle}"
+                    Text="Submit" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</mvxViews:MvxContentPage>

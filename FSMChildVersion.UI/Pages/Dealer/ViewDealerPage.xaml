@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<mvxViews:MvxContentPage
+    x:Class="FSMChildVersion.UI.Pages.Dealer.ViewDealerPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FSMChildVersion.UI.Pages.AreaManager"
+    xmlns:mvxViews="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:viewModel="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
+    x:TypeArguments="viewModel:ViewDelearViewModel" NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <StackLayout
+            Margin="30,30,30,0"
+            HorizontalOptions="FillAndExpand"
+            Orientation="Vertical"
+            Spacing="5"
+            VerticalOptions="StartAndExpand">
+            <Button
+                Margin="0,15,0,15"
+                Style="{StaticResource MainButtonStyle}"
+                Text="Bhakkar" />
+            <Button
+                Margin="0,15,0,15"
+                Style="{StaticResource MainButtonStyle}"
+                Text="Darya Khan" />
+            <Button
+                Margin="0,15,0,15"
+                Style="{StaticResource MainButtonStyle}"
+                Text="Kallur Kot" />
+            <Button
+                Margin="0,15,0,15"
+                Style="{StaticResource MainButtonStyle}"
+                Text="Mankera" />
+        </StackLayout>
+    </ScrollView>
+</mvxViews:MvxContentPage>
+

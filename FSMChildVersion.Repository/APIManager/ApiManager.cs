@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
 using AutoMapper;
+using FSMChildVersion.Repository.EntityFramework.UnitOfWork;
 using MvvmCross;
 using Plugin.Connectivity.Abstractions;
 using Polly;
@@ -19,6 +20,7 @@ namespace FSMChildVersion.Repository.APIManager
         public readonly IUserDialogs UserDialogs;
         public readonly IConnectivity Connectivity;
         public readonly IMapper AutoMapper;
+        public readonly IUnitOfWork UnitOfWork;
         public bool IsConnected { get; set; }
         public bool IsReachable { get; set; }
 
@@ -27,11 +29,12 @@ namespace FSMChildVersion.Repository.APIManager
 
         public ApiManager()
         {
-            UserDialogs = Mvx.IoCProvider.Resolve<IUserDialogs>();
             AutoMapper = Mvx.IoCProvider.Resolve<IMapper>();
             Connectivity = Mvx.IoCProvider.Resolve<IConnectivity>();
             IsConnected = Connectivity.IsConnected;
             Connectivity.ConnectivityChanged += OnConnectivityChanged;
+            UserDialogs = Mvx.IoCProvider.Resolve<IUserDialogs>();
+            UnitOfWork = Mvx.IoCProvider.Resolve<IUnitOfWork>();
         }
 
         private void OnConnectivityChanged(object sender, ConnectivityChangedEventArgs e)

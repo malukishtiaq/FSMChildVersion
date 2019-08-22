@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<mvxViews:MvxContentPage
+    x:Class="FSMChildVersion.UI.Pages.Orders.OrdersPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:FSMChildVersion.UI.CustomControls"
+    xmlns:local="clr-namespace:FSMChildVersion.UI.Pages.Farmer"
+    xmlns:mvxViews="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:pages="clr-namespace:FSMChildVersion.UI.Pages"
+    xmlns:viewModels="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
+    x:TypeArguments="viewModels:OrdersViewModel"
+    NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ContentView>
+                <pages:Header />
+            </ContentView>
+            <StackLayout
+                HorizontalOptions="FillAndExpand"
+                Orientation="Vertical"
+                Style="{StaticResource DefaultMarginForStacklayoutStyle}"
+                VerticalOptions="StartAndExpand">
+
+                <controls:CustomPicker
+                    Title="Choose Products"
+                    Margin="10"
+                    Image="ic_arrow_drop_down"
+                    ItemsSource="{Binding Roles}"
+                    SelectedIndex="{Binding SelectedRole}"
+                    TextColor="White" />
+
+                <controls:CustomPicker
+                    Title="Choose Packing"
+                    Margin="10"
+                    Image="ic_arrow_drop_down"
+                    ItemsSource="{Binding Roles}"
+                    SelectedIndex="{Binding SelectedRole}"
+                    TextColor="White" />
+
+                <Entry Margin="10" Placeholder="Enter Quantity" />
+
+                <controls:CustomPicker
+                    Title="Pick an Item"
+                    Margin="10"
+                    Image="ic_arrow_drop_down"
+                    ItemsSource="{Binding Roles}"
+                    SelectedIndex="{Binding SelectedRole}"
+                    TextColor="White" />
+                <Button
+                    Margin="10"
+                    Style="{StaticResource MainButtonStyle}"
+                    Text="Submit Request" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</mvxViews:MvxContentPage>

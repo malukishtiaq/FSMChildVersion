@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ViewCell
+    x:Class="FSMChildVersion.UI.Pages.Cells.OutgoingViewCell"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
+
+    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+        <forms:CachedImage
+            HeightRequest="50"
+            HorizontalOptions="End"
+            Source="ic_arrow_drop_down.png"
+            VerticalOptions="StartAndExpand"
+            WidthRequest="50" />
+        <Frame
+            Margin="10"
+            Padding="10"
+            BackgroundColor="White"
+            FlowDirection="LeftToRight"
+            HasShadow="false"
+            HorizontalOptions="FillAndExpand"
+            Rotation="180">
+            <StackLayout Orientation="Vertical">
+                <Label Text="{Binding Text}" />
+                <StackLayout Orientation="Horizontal">
+                    <!--  Add span.  -->
+                    <Label HorizontalTextAlignment="Center" Text="name" />
+                    <Label HorizontalTextAlignment="Center" Text=" . " />
+                    <Label HorizontalTextAlignment="Center" Text="51 Min" />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ViewCell>

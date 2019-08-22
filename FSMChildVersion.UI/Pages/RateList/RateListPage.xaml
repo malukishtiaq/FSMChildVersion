@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<mvxViews:MvxContentPage
+    x:Class="FSMChildVersion.UI.Pages.RateList.RateListPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:FSMChildVersion.UI.Behavior;assembly=FSMChildVersion.Core"
+    xmlns:local="clr-namespace:FSMChildVersion.UI.Pages.AreaManager"
+    xmlns:mvxViews="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:pages="clr-namespace:FSMChildVersion.UI.Pages"
+    xmlns:viewModel="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
+    x:TypeArguments="viewModel:RateListViewModel"
+    NavigationPage.HasNavigationBar="False">
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <ContentView>
+            <pages:Header />
+        </ContentView>
+        <StackLayout
+            Margin="30,30,30,10"
+            HorizontalOptions="FillAndExpand"
+            Orientation="Vertical"
+            Spacing="0"
+            VerticalOptions="FillAndExpand">
+            <StackLayout Margin="0">
+                <Frame
+                    Padding="10"
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    HasShadow="False">
+                    <Label Text="INSECTICIDES" TextColor="White" />
+                </Frame>
+                <ListView HasUnevenRows="True" ItemsSource="{Binding InsecticidesList}">
+                    <ListView.Header>
+                        <Grid
+                            ColumnSpacing="0"
+                            HorizontalOptions="FillAndExpand"
+                            RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <Frame
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Padding="10"
+                                HasShadow="False">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="Small"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="Product Name" />
+                            </Frame>
+                            <Frame
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Padding="10"
+                                HasShadow="False">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="Small"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="Rate" />
+                            </Frame>
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.Footer>
+                        <Label Text="" />
+                    </ListView.Footer>
+                    <ListView.Behaviors>
+                        <behaviors:EventToCommandBehavior
+                            Command="{Binding NavigateToReminder}"
+                            EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}"
+                            EventName="ItemTapped" />
+                    </ListView.Behaviors>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid
+                                    ColumnSpacing="0"
+                                    HorizontalOptions="FillAndExpand"
+                                    RowSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Frame
+                                        Grid.Column="0"
+                                        Margin="0"
+                                        Padding="10"
+                                        BackgroundColor="White"
+                                        BorderColor="Transparent"
+                                        HasShadow="False"
+                                        HorizontalOptions="FillAndExpand"
+                                        OutlineColor="Transparent">
+                                        <Label HorizontalOptions="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span
+                                                        Text="{Binding ProductName}"
+                                                        TextColor="Blue"
+                                                        TextDecorations="Underline" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </Frame>
+                                    <Frame
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Margin="0"
+                                        Padding="10"
+                                        BackgroundColor="White"
+                                        BorderColor="Transparent"
+                                        HasShadow="False"
+                                        HorizontalOptions="FillAndExpand"
+                                        IsClippedToBounds="True"
+                                        OutlineColor="Transparent">
+                                        <Label HorizontalOptions="Center" Text="{Binding Rate}" />
+                                    </Frame>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout Margin="0,30,0,0">
+                <Frame
+                    Padding="10"
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    HasShadow="False">
+                    <Label Text="WEEDCIDES" TextColor="White" />
+                </Frame>
+                <ListView HasUnevenRows="True" ItemsSource="{Binding WeedCidesList}">
+                    <ListView.Behaviors>
+                        <behaviors:EventToCommandBehavior
+                            Command="{Binding NavigateToReminder}"
+                            EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}"
+                            EventName="ItemTapped" />
+                    </ListView.Behaviors>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid
+                                    ColumnSpacing="0"
+                                    HorizontalOptions="FillAndExpand"
+                                    RowSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Frame
+                                        Grid.Column="0"
+                                        Margin="0"
+                                        Padding="10"
+                                        BackgroundColor="White"
+                                        BorderColor="Transparent"
+                                        HasShadow="False"
+                                        HorizontalOptions="FillAndExpand"
+                                        OutlineColor="Transparent">
+                                        <Label HorizontalOptions="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span
+                                                        Text="{Binding ProductName}"
+                                                        TextColor="Blue"
+                                                        TextDecorations="Underline" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </Frame>
+                                    <Frame
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Margin="0"
+                                        Padding="10"
+                                        BackgroundColor="White"
+                                        BorderColor="Transparent"
+                                        HasShadow="False"
+                                        HorizontalOptions="FillAndExpand"
+                                        IsClippedToBounds="True"
+                                        OutlineColor="Transparent">
+                                        <Label HorizontalOptions="Center" Text="{Binding Rate}" />
+                                    </Frame>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.Header>
+                        <Grid
+                            ColumnSpacing="0"
+                            HorizontalOptions="FillAndExpand"
+                            RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <Frame
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Padding="10"
+                                HasShadow="False">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="Small"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="Product Name" />
+                            </Frame>
+                            <Frame
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Padding="10"
+                                HasShadow="False">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="Small"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="Rate" />
+                            </Frame>
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.Footer>
+                        <Label Text="" />
+                    </ListView.Footer>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</mvxViews:MvxContentPage>

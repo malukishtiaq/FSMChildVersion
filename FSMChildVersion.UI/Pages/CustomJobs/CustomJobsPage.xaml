@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<mvxViews:MvxContentPage
+    x:Class="FSMChildVersion.UI.Pages.CustomJobs.CustomJobsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customControls="clr-namespace:FSMChildVersion.UI.CustomControls"
+    xmlns:helpers="clr-namespace:FSMChildVersion.UI.Helpers"
+    xmlns:mvxViews="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:pages="clr-namespace:FSMChildVersion.UI.Pages"
+    xmlns:partials="clr-namespace:ChatUIXForms.Views.Partials"
+    xmlns:viewModel="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
+    x:TypeArguments="viewModel:CustomJobsViewModel"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helpers:ChatTemplateSelector x:Key="MessageTemplateSelector" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <ContentView>
+            <pages:Header />
+        </ContentView>
+        <Grid
+            Margin="10"
+            ColumnSpacing="0"
+            HorizontalOptions="FillAndExpand"
+            RowSpacing="0"
+            VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="1" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <customControls:ExtendedListView
+                x:Name="ChatList"
+                Grid.Row="0"
+                Margin="0"
+                FlowDirection="RightToLeft"
+                HasUnevenRows="True"
+                ItemAppearingCommand="{Binding MessageAppearingCommand}"
+                ItemDisappearingCommand="{Binding MessageDisappearingCommand}"
+                ItemTapped="OnListTapped"
+                ItemTemplate="{StaticResource MessageTemplateSelector}"
+                ItemsSource="{Binding Messages}"
+                Rotation="180"
+                SeparatorColor="Transparent"
+                VerticalOptions="FillAndExpand" />
+            <Frame
+                Grid.Row="0"
+                Margin="0,0,2,15"
+                Padding="1"
+                BackgroundColor="White"
+                CornerRadius="25"
+                HasShadow="false"
+                HeightRequest="50"
+                HorizontalOptions="EndAndExpand"
+                IsVisible="{Binding ShowScrollTap, Mode=TwoWay}"
+                VerticalOptions="End"
+                WidthRequest="50">
+                <StackLayout Spacing="3">
+                    <Label
+                        HorizontalOptions="CenterAndExpand"
+                        IsVisible="{Binding PendingMessageCountVisible}"
+                        Text="{Binding PendingMessageCount}"
+                        TextColor="{DynamicResource primary}"
+                        VerticalTextAlignment="Center" />
+                    <Image
+                        HeightRequest="30"
+                        Source="ic_scrolldown"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30" />
+
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ScrollTap" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <BoxView
+                Grid.Row="1"
+                BackgroundColor="LightGray"
+                HeightRequest="1"
+                HorizontalOptions="FillAndExpand" />
+            <partials:ChatInputBarView
+                x:Name="chatInput"
+                Grid.Row="2"
+                Margin="0,0,10,0" />
+        </Grid>
+    </StackLayout>
+</mvxViews:MvxContentPage>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<views:MvxContentPage
+    x:Class="FSMChildVersion.UI.Pages.Home.MenuPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors"
+    xmlns:customcontrols="clr-namespace:FSMChildVersion.UI.CustomControls"
+    xmlns:viewModels="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
+    xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    x:Name="MainContent"
+    x:TypeArguments="viewModels:MenuViewModel"
+    BackgroundColor="{StaticResource PrimaryColor}">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout BackgroundColor="#6c0c6d" HeightRequest="90">
+                <StackLayout.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <On Platform="Android, iOS" Value="True" />
+                    </OnPlatform>
+                </StackLayout.IsVisible>
+                <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0,20,0,0" />
+                    </OnPlatform>
+                </StackLayout.Margin>
+
+                <Label
+                    Margin="10,10,10,0"
+                    FontSize="Large"
+                    Text="User Profile"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+
+                <customcontrols:CustomPicker
+                    Title="Pick an Item"
+                    Margin="0"
+                    Image="ic_arrow_drop_down"
+                    ItemsSource="{Binding Roles}"
+                    SelectedIndex="{Binding SelectedRole}"
+                    TextColor="White" />
+
+            </StackLayout>
+            <ListView
+                x:Name="MenuList"
+                ItemsSource="{Binding MenuItemList}"
+                SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}">
+                <ListView.Behaviors>
+                    <behaviors:EventHandlerBehavior EventName="ItemSelected">
+                        <behaviors:InvokeCommandAction Command="{Binding BindingContext.DataContext.ShowDetailPageAsyncCommand, Source={x:Reference MainContent}}" />
+                    </behaviors:EventHandlerBehavior>
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout HeightRequest="50">
+                                <Label
+                                    Margin="20,0,0,0"
+                                    Text="{Binding}"
+                                    TextColor="White"
+                                    VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</views:MvxContentPage>

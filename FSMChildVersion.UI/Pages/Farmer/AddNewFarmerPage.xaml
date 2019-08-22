@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<mvxViews:MvxContentPage
+    x:Class="FSMChildVersion.UI.Pages.Farmer.AddNewFarmerPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FSMChildVersion.UI.Pages.Farmer"
+    xmlns:mvxViews="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:pages="clr-namespace:FSMChildVersion.UI.Pages"
+    xmlns:viewModel="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
+    x:TypeArguments="viewModel:AddNewFarmerViewModel"
+    NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ContentView>
+                <pages:Header />
+            </ContentView>
+            <StackLayout
+                HorizontalOptions="FillAndExpand"
+                Orientation="Vertical"
+                Style="{StaticResource DefaultMarginForStacklayoutStyle}"
+                VerticalOptions="StartAndExpand">
+
+                <Entry Margin="10" Placeholder="Farmer Name" />
+                <Entry Margin="10" Placeholder="Mobile #" />
+                <Entry Margin="10" Placeholder="Acre" />
+                <Entry Margin="10" Placeholder="Area" />
+                <Button
+                    Margin="10"
+                    Style="{StaticResource MainButtonStyle}"
+                    Text="Add Farmer" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</mvxViews:MvxContentPage>  

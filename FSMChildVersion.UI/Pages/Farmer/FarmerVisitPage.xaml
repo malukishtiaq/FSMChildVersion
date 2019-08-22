@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<mvxViews:MvxContentPage
+    x:Class="FSMChildVersion.UI.Pages.Farmer.FarmerVisitPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FSMChildVersion.UI.Pages.Farmer"
+    xmlns:mvxViews="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:pages="clr-namespace:FSMChildVersion.UI.Pages"
+    xmlns:viewModel="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
+    x:TypeArguments="viewModel:FarmerVisitViewModel"
+    NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ContentView>
+                <pages:Header />
+            </ContentView>
+            <StackLayout
+                HorizontalOptions="FillAndExpand"
+                Orientation="Vertical"
+                Style="{StaticResource DefaultMarginForStacklayoutStyle}"
+                VerticalOptions="StartAndExpand">
+                <Entry Margin="10" Placeholder="Mobile #" />
+                <Entry Margin="10" Placeholder="Farmer Name" />
+                <Entry Margin="10" Placeholder="Crop" />
+                <Entry Margin="10" Placeholder="Location" />
+                <StackLayout
+                    Margin="10"
+                    Orientation="Vertical"
+                    Spacing="0">
+                    <BoxView
+                        BackgroundColor="Red"
+                        HeightRequest="{StaticResource WidthHeightOFUploadButton}"
+                        HorizontalOptions="StartAndExpand"
+                        WidthRequest="{StaticResource WidthHeightOFUploadButton}" />
+                    <Button
+                        Margin="0"
+                        HorizontalOptions="StartAndExpand"
+                        Style="{StaticResource UploadButtonStyle}"
+                        Text="Upload"
+                        WidthRequest="{StaticResource WidthHeightOFUploadButton}" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</mvxViews:MvxContentPage>

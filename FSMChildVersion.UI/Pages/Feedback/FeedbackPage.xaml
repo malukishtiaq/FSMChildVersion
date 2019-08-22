@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<mvxViews:MvxContentPage
+    x:Class="FSMChildVersion.UI.Pages.Feedback.FeedbackPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customcontrols="clr-namespace:FSMChildVersion.UI.CustomControls"
+    xmlns:local="clr-namespace:FSMChildVersion.UI.Pages.Farmer"
+    xmlns:mvxViews="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:pages="clr-namespace:FSMChildVersion.UI.Pages"
+    xmlns:viewModel="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
+    x:TypeArguments="viewModel:FeedbackViewModel"
+    NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ContentView>
+                <pages:Header />
+            </ContentView>
+            <StackLayout
+                Margin="30,50,30,30"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Vertical"
+                Style="{StaticResource DefaultMarginForStacklayoutStyle}"
+                VerticalOptions="StartAndExpand">
+                <Entry Margin="10" Placeholder="Farmer Name" />
+                <Entry Margin="10" Placeholder="Mobile #" />
+                <StackLayout
+                    Margin="10"
+                    Padding="0"
+                    Spacing="0">
+                    <Label Margin="10,0,0,0" Text="Crop" />
+                    <customcontrols:CustomPicker
+                        Title="Pick an Item"
+                        Margin="10,0,10,10"
+                        Image="ic_arrow_drop_down"
+                        ItemsSource="{Binding Roles}"
+                        SelectedIndex="{Binding SelectedRole}"
+                        TextColor="White" />
+                </StackLayout>
+                <StackLayout
+                    Margin="10"
+                    Padding="0"
+                    Spacing="0">
+                    <Label Margin="10,0,0,0" Text="Product" />
+                    <customcontrols:CustomPicker
+                        Title="Pick an Item"
+                        Margin="10,0,10,10"
+                        Image="ic_arrow_drop_down"
+                        ItemsSource="{Binding Roles}"
+                        SelectedIndex="{Binding SelectedRole}"
+                        TextColor="White" />
+                </StackLayout>
+                <StackLayout
+                    Margin="20"
+                    Orientation="Vertical"
+                    Spacing="0">
+                    <BoxView
+                        BackgroundColor="Red"
+                        HeightRequest="{StaticResource WidthHeightOFUploadButton}"
+                        HorizontalOptions="StartAndExpand"
+                        WidthRequest="{StaticResource WidthHeightOFUploadButton}" />
+                    <Button
+                        Margin="0"
+                        HorizontalOptions="StartAndExpand"
+                        Style="{StaticResource UploadButtonStyle}"
+                        Text="Upload"
+                        WidthRequest="{StaticResource WidthHeightOFUploadButton}" />
+                </StackLayout>
+                <Button
+                    Margin="10,20,10,10"
+                    Style="{StaticResource MainButtonStyle}"
+                    Text="SAVE" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</mvxViews:MvxContentPage>

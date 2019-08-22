@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<mvxViews:MvxContentPage
+    x:Class="FSMChildVersion.UI.Pages.Farmer.ViewFarmerPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:FSMChildVersion.UI.Behavior;assembly=FSMChildVersion.Core"
+    xmlns:local="clr-namespace:FSMChildVersion.UI.Pages.Farmer"
+    xmlns:mvxViews="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:pages="clr-namespace:FSMChildVersion.UI.Pages"
+    xmlns:viewModel="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
+    x:TypeArguments="viewModel:ViewFarmerViewModel"
+    NavigationPage.HasNavigationBar="False">
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <ContentView>
+            <pages:Header />
+        </ContentView>
+        <StackLayout
+            Margin="30"
+            HorizontalOptions="FillAndExpand"
+            Orientation="Vertical"
+            VerticalOptions="FillAndExpand">
+            <ListView HasUnevenRows="True" ItemsSource="{Binding FarmerList}">
+                <ListView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateToReminder}" />
+                </ListView.GestureRecognizers>
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior
+                        Command="{Binding NavigateToReminder}"
+                        EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}"
+                        EventName="ItemTapped" />
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid
+                                ColumnSpacing="0"
+                                HorizontalOptions="FillAndExpand"
+                                RowSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="5*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Frame
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Margin="0"
+                                    Padding="15"
+                                    BackgroundColor="White"
+                                    BorderColor="Transparent"
+                                    HasShadow="False"
+                                    HorizontalOptions="FillAndExpand"
+                                    IsClippedToBounds="True"
+                                    OutlineColor="Transparent">
+                                    <Label HorizontalOptions="Center" Text="{Binding Count}" />
+                                </Frame>
+                                <Frame
+                                    Grid.Column="1"
+                                    Margin="0"
+                                    Padding="15,15,25,15"
+                                    BackgroundColor="White"
+                                    BorderColor="Transparent"
+                                    HasShadow="False"
+                                    HorizontalOptions="FillAndExpand"
+                                    OutlineColor="Transparent">
+                                    <Label HorizontalOptions="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    Text="{Binding Name}"
+                                                    TextColor="Blue"
+                                                    TextDecorations="Underline" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </StackLayout>
+
+</mvxViews:MvxContentPage>
