@@ -63,6 +63,7 @@ namespace FSMChildVersion.Core.ViewModels
 
         private async Task ChoosePageToBeDisplayedAsync(ERoles roles)
         {
+            return;
             switch (roles)
             {
                 case ERoles.FieldOfficer:

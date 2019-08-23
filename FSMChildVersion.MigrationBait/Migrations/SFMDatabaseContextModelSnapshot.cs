@@ -16,6 +16,26 @@ namespace FSMChildVersion.MigrationBait.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
+            modelBuilder.Entity("FSMChildVersion.MigrationBait.DomainModels.Attendance", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CreatedBy");
+
+                    b.Property<DateTime>("CreatedOn");
+
+                    b.Property<long>("SQId");
+
+                    b.Property<string>("Status");
+
+                    b.Property<long>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Attendance");
+                });
+
             modelBuilder.Entity("FSMChildVersion.Repository.DomainModels.MakeUp", b =>
                 {
                     b.Property<int>("Id")
@@ -45,6 +65,8 @@ namespace FSMChildVersion.MigrationBait.Migrations
 
                     b.Property<double?>("Rating");
 
+                    b.Property<long>("SQId");
+
                     b.Property<string>("TimeText");
 
                     b.Property<DateTime>("UpdatedAt");
@@ -63,9 +85,13 @@ namespace FSMChildVersion.MigrationBait.Migrations
 
                     b.Property<string>("FirstName");
 
+                    b.Property<bool>("IsLogin");
+
                     b.Property<string>("LastName");
 
                     b.Property<string>("Password");
+
+                    b.Property<long>("SQId");
 
                     b.Property<string>("Sex");
 

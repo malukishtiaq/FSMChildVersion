@@ -1,5 +1,3 @@
-using System;
-using System.Windows.Input;
 using FluentValidation;
 using FSMChildVersion.Core.ViewModels;
 using MvvmCross;
@@ -15,8 +13,10 @@ namespace FSMChildVersion.Core.Validations
         public AbstractValidator<T> ValidationRules;
         public Validatables LoginValidatablesRef;
         public Validatables LoginValidatablesVal;
-        public ICommand ClearValidationCommand => new MvxCommand<string>((value)=> ClearValidation(value));
-         
+        private IMvxCommand<string> _clearValidationCommand;
+        public IMvxCommand<string> ClearValidationCommand => _clearValidationCommand ?? (_clearValidationCommand = new MvxCommand<string>(ClearValidation));
+
+
         protected ValidationHandler(AbstractValidator<T> validationRules)
         {
             ValidationRules = validationRules;
@@ -41,11 +41,21 @@ namespace FSMChildVersion.Core.Validations
 
         public void ClearValidation(string clearOptions = "")
         {
-            (var clearOnlyValidation, var classPropertyNames) = clearOptions.ParseClearOptions();
-            if (LoginValidatablesRef != null)
-                LoginValidatablesRef.Clear(clearOnlyValidation, classPropertyNames);
-            if(LoginValidatablesVal != null)
-                LoginValidatablesVal.Clear(clearOnlyValidation, classPropertyNames);
+            if (clearOptions == "Xamarin.Forms.FocusEventArgs")
+            {
+                if (LoginValidatablesRef != null)
+                    LoginValidatablesRef.Clear();
+                if (LoginValidatablesVal != null)
+                    LoginValidatablesVal.Clear();
+            }
+            else
+            {
+                (var clearOnlyValidation, var classPropertyNames) = clearOptions.ParseClearOptions();
+                if (LoginValidatablesRef != null)
+                    LoginValidatablesRef.Clear(clearOnlyValidation, classPropertyNames);
+                if (LoginValidatablesVal != null)
+                    LoginValidatablesVal.Clear(clearOnlyValidation, classPropertyNames);
+            }
         }
     }
 }

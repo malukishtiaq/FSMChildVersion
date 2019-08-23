@@ -6,6 +6,7 @@ namespace FSMChildVersion.Repository.DomainModels
     public class MakeUp
     {
         [PrimaryKey, Unique, NotNull]
+        public long SQId { get; set; }
         public int Id { get; set; }
         public string Brand { get; set; }
         public string Name { get; set; }

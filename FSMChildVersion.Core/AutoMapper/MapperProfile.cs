@@ -1,5 +1,6 @@
 using AutoMapper;
 using FSMChildVersion.Core.Model;
+using FSMChildVersion.Core.Model.Attendance;
 using FSMChildVersion.Repository.DomainModels;
 
 namespace FSMChildVersion.Core.AutoMapper
@@ -8,8 +9,11 @@ namespace FSMChildVersion.Core.AutoMapper
     {
         public MapperProfile()
         {
-            CreateMap<MakeUpModel, MakeUp>();
-            CreateMap<MakeUp, MakeUpModel>();
+            CreateMap<UserModel, User>();
+            CreateMap<User, UserModel>();
+
+            CreateMap<Attendance, AddAttendanceRequest>();
+            CreateMap<AddAttendanceRequest, Attendance>();
         }
     }
 }

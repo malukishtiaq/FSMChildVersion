@@ -12,6 +12,7 @@
     <PackageReference Include="AutoMapper" Version="8.1.1" />
     <PackageReference Include="FluentValidation" Version="8.4.0" />
     <PackageReference Include="fusillade" Version="2.0.5" />
+    <PackageReference Include="MediatR" Version="7.0.0" />
     <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="2.0.1" />
     <PackageReference Include="modernhttpclient" Version="2.4.2" />
     <PackageReference Include="MvvmCross.Forms" Version="6.3.1" />

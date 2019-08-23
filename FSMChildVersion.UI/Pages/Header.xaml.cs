@@ -19,14 +19,14 @@ namespace FSMChildVersion.UI.Pages
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            if (Application.Current.MainPage is MasterDetailPage masterDetailPage)
-            {
-                masterDetailPage.IsPresented = true;
-            }
-            else if (Application.Current.MainPage is NavigationPage navigationPage && navigationPage.CurrentPage is MasterDetailPage nestedMasterDetail)
-            {
-                nestedMasterDetail.IsPresented = true;
-            }
+            //if (Application.Current.MainPage is MasterDetailPage masterDetailPage)
+            //{
+            //    masterDetailPage.IsPresented = true;
+            //}
+            //else if (Application.Current.MainPage is NavigationPage navigationPage && navigationPage.CurrentPage is MasterDetailPage nestedMasterDetail)
+            //{
+            //    nestedMasterDetail.IsPresented = true;
+            //}
         }
     }
 }

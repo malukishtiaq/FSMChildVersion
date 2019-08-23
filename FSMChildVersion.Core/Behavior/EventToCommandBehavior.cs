@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Windows.Input;
 using FSMChildVersion.Core.Behavior.Base;
+using MvvmCross.Commands;
 using Xamarin.Forms;
 
 namespace FSMChildVersion.UI.Behavior
@@ -16,7 +17,7 @@ namespace FSMChildVersion.UI.Behavior
                 BindingMode.OneWay);
 
         public static BindableProperty CommandProperty =
-            BindableProperty.CreateAttached("Command", typeof(ICommand), typeof(EventToCommandBehavior), null,
+            BindableProperty.CreateAttached("Command", typeof(IMvxCommand), typeof(EventToCommandBehavior), null,
                 BindingMode.OneWay);
 
         public static BindableProperty CommandParameterProperty =
@@ -40,9 +41,9 @@ namespace FSMChildVersion.UI.Behavior
             set => SetValue(EventNameProperty, value);
         }
 
-        public ICommand Command
+        public IMvxCommand Command
         {
-            get => (ICommand)GetValue(CommandProperty);
+            get => (IMvxCommand)GetValue(CommandProperty);
             set => SetValue(CommandProperty, value);
         }
 

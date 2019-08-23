@@ -5,27 +5,40 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
     xmlns:mvxViews="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
-    x:TypeArguments="local:AttendanceViewModel" NavigationPage.HasNavigationBar="False">
+    xmlns:pages="clr-namespace:FSMChildVersion.UI.Pages"
+    xmlns:popups="clr-namespace:FSMChildVersion.UI.Pages.Popups"
+    x:TypeArguments="local:AttendanceViewModel"
+    NavigationPage.HasNavigationBar="False">
     <ScrollView>
-        <StackLayout
-            Margin="30,0,30,0"
-            HorizontalOptions="FillAndExpand"
-            Orientation="Vertical"
-            VerticalOptions="StartAndExpand">
-            <Label
-                FontSize="24"
-                HorizontalOptions="CenterAndExpand"
-                Text="Check-In-Out"
-                TextColor="{StaticResource LightGreenColor}"
-                VerticalOptions="Start" />
-            <Button
-                Margin="10"
-                Style="{StaticResource MainButtonStyle}"
-                Text="Check-In" />
-            <Button
-                Margin="10"
-                Style="{StaticResource MainButtonStyle}"
-                Text="Check-Out" />
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ContentView>
+                <pages:Header />
+            </ContentView>
+            <StackLayout
+                Margin="30,0,30,0"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Vertical"
+                VerticalOptions="StartAndExpand">
+                <popups:ResponseView />
+                <Label
+                    FontSize="24"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Check-In-Out"
+                    TextColor="{StaticResource LightGreenColor}"
+                    VerticalOptions="Start" />
+                <Button
+                    Margin="10"
+                    Command="{Binding CheckInCommand}"
+                    IsEnabled="{Binding IsCheckInEnabled}"
+                    Style="{StaticResource MainButtonStyle}"
+                    Text="Check-In" />
+                <Button
+                    Margin="10"
+                    Command="{Binding CheckOutCommand}"
+                    IsEnabled="{Binding IsCheckInEnabled, Converter={StaticResource InverseBoolConverter}}"
+                    Style="{StaticResource MainButtonStyle}"
+                    Text="Check-Out" />
+            </StackLayout>
         </StackLayout>
     </ScrollView>
 </mvxViews:MvxContentPage>

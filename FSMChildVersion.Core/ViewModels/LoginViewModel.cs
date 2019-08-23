@@ -1,25 +1,24 @@
-using System.Collections.Generic;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using FluentValidation;
 using FSMChildVersion.Core.Model;
-using FSMChildVersion.Core.Services;
+using FSMChildVersion.Core.Model.Login;
+using FSMChildVersion.Core.Model.Settings;
 using FSMChildVersion.Core.Validations;
+using MediatR;
 using MvvmCross.Commands;
 using Plugin.FluentValidationRules;
-using Xamarin.Forms;
 
 namespace FSMChildVersion.Core.ViewModels
 {
 
-    [PropertyChanged.AddINotifyPropertyChangedInterface]
-    public class LoginViewModel : ValidationHandler<LoginModel>
+    public class LoginViewModel : ValidationHandler<LoginRequest>
     {
         #region Initializations
-        private readonly IMakeupLocalDbService makeupLocalDbService;
-        public LoginViewModel(IMakeupLocalDbService makeupLocalDbService) : base(new LoginValidator())
+        private readonly IMediator mediator;
+        public LoginViewModel(IMediator mediator) : base(new LoginValidator())
         {
-            this.makeupLocalDbService = makeupLocalDbService;
+            this.mediator = mediator;
             SetupForValidationRef(Username, Password);
         }
 
@@ -34,31 +33,61 @@ namespace FSMChildVersion.Core.ViewModels
         #endregion
 
         #region Validation Setup
-        public Validatable<string> Username { get; set; } = new Validatable<string>(nameof(LoginModel.Username));
-        public Validatable<string> Password { get; set; } = new Validatable<string>(nameof(LoginModel.Password));
+        public Validatable<string> Username { get; set; } = new Validatable<string>(nameof(LoginRequest.Username));
+        public Validatable<string> Password { get; set; } = new Validatable<string>(nameof(LoginRequest.Password));
         #endregion
 
         #region Commands
-        public ICommand LoginCommand => new MvxCommand(async () => await RunSafeAsync(LoginMethod()));
+        public ICommand LoginCommand => new MvxCommand(async () => await RunSafeAsync(LoginMethodAsync()));
         #endregion
 
         #region Public Properties
-        public LoginModel Login { get; set; } = new LoginModel();
+        public LoginRequest Login { get; set; } = new LoginRequest();
         #endregion
 
         #region Command Actions
-        private Task LoginMethod()
+        private async Task LoginMethodAsync()
         {
-            LoginModel login = LoginValidatablesRef.Populate<LoginModel>();
-            Task<List<MakeUpModel>> data;
-            if (Validator.Validate(login).IsValid)
+            try
             {
-                data = makeupLocalDbService.GetMakeupLocalUsingEFDataAsync();
+                LoginRequest login = LoginValidatablesRef.Populate<LoginRequest>();
+                if (Validate(login).IsValidOverall && Validator.Validate(login).IsValid)
+                {
+                    LoginResponse result = await mediator.Send(login).ConfigureAwait(false);
+                    if (result == null)
+                    {
+                        ResponseMessage = ConstantsViewModel.LoginResponseNull;
+                        IsResponseVisible = false;
+                    }
+                    else
+                    {
+                        if (result.Success)
+                        {
+                            IsResponseVisible = false;
+                            var item = AddSettingsRequest.CreateSettingRequest(ConstantFlags.LoginFlag, true.ToString());
+                            AddSettingsResponse response = await mediator.Send(item).ConfigureAwait(false);
+
+                            if (!response.Success)
+                            {
+                                Console.WriteLine(ConstantsViewModel.SettingSaveFailure);
+                            }
+
+                            await NavigationService.Navigate<MasterDetailViewModel>();
+                            await NavigationService.Close(this);
+                        }
+                        else
+                        {
+                            ResponseMessage = result.Message;
+                            IsResponseVisible = true;
+                        }
+                    }
+                }
             }
-            else
+            catch (Exception Exception)
             {
+                Console.WriteLine(Exception.Message);
             }
-            return Task.CompletedTask;
+            return;
         }
 
         #endregion

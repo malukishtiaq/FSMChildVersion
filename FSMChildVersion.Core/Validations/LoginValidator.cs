@@ -1,20 +1,22 @@
-using System;
 using FluentValidation;
 using FSMChildVersion.Core.Model;
-using Plugin.FluentValidationRules;
 
 namespace FSMChildVersion.Core.Validations
 {
-    public class LoginValidator : AbstractValidator<LoginModel>
+    public class LoginValidator : AbstractValidator<LoginRequest>
     {
         public LoginValidator()
         {
-            RuleFor(c => c.Username).Must(n => ValidateStringEmpty(n)).WithMessage("Username should not be empty.");
-            RuleFor(c => c.Password).Must(n => ValidateStringEmpty(n)).WithMessage("Password should not be empty.");
-        }
-        private bool ValidateStringEmpty(string stringValue)
-        {
-            return !string.IsNullOrEmpty(stringValue);
+            //RuleFor(e => e.Username).NotEmpty();
+            //
+            //When(e => e.Password != null, () =>
+            //{
+            //    RuleFor(e => e.Password).MinimumLength(3).WithMessage("How you bout to enter a FULL 'name' with less than 3 chars!?")
+            //            .Must(name => name.Contains(" ")).WithMessage("Expecting at least first and last name separated by a space!");
+            //});
+
+            RuleFor(c => c.Username).NotEmpty().WithMessage("Username should not be empty.");
+            RuleFor(c => c.Password).NotEmpty().WithMessage("Password should not be empty.");
         }
     }
 }

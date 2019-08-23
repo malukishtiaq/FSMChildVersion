@@ -16,65 +16,91 @@ namespace FSMChildVersion.Repository.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
+            modelBuilder.Entity("FSMChildVersion.Repository.DomainModels.Attendance", b =>
+            {
+                b.Property<long>("Id")
+                    .ValueGeneratedOnAdd();
+
+                b.Property<string>("CreatedBy");
+
+                b.Property<DateTime>("CreatedOn");
+
+                b.Property<long>("SQId");
+
+                b.Property<string>("Status");
+
+                b.Property<long>("UserId");
+
+                b.HasKey("Id");
+
+                b.ToTable("Attendance");
+            });
+
             modelBuilder.Entity("FSMChildVersion.Repository.DomainModels.MakeUp", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd();
 
-                    b.Property<string>("ApiFeaturedImage");
+                b.Property<string>("ApiFeaturedImage");
 
-                    b.Property<string>("Brand");
+                b.Property<string>("Brand");
 
-                    b.Property<string>("Category");
+                b.Property<string>("Category");
 
-                    b.Property<DateTime>("CreatedAt");
+                b.Property<DateTime>("CreatedAt");
 
-                    b.Property<string>("Description");
+                b.Property<string>("Description");
 
-                    b.Property<string>("ImageLink");
+                b.Property<string>("ImageLink");
 
-                    b.Property<string>("Name");
+                b.Property<string>("Name");
 
-                    b.Property<string>("Price");
+                b.Property<string>("Price");
 
-                    b.Property<string>("ProductApiUrl");
+                b.Property<string>("ProductApiUrl");
 
-                    b.Property<string>("ProductLink");
+                b.Property<string>("ProductLink");
 
-                    b.Property<string>("ProductType");
+                b.Property<string>("ProductType");
 
-                    b.Property<double?>("Rating");
+                b.Property<double?>("Rating");
 
-                    b.Property<string>("TimeText");
+                b.Property<long>("SQId");
 
-                    b.Property<DateTime>("UpdatedAt");
+                b.Property<string>("TimeText");
 
-                    b.Property<string>("WebsiteLink");
+                b.Property<DateTime>("UpdatedAt");
 
-                    b.HasKey("Id");
+                b.Property<string>("WebsiteLink");
 
-                    b.ToTable("MakeUp");
-                });
+                b.HasKey("Id");
+
+                b.ToTable("MakeUp");
+            });
 
             modelBuilder.Entity("FSMChildVersion.Repository.DomainModels.User", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd();
+            {
+                b.Property<long>("Id")
+                    .ValueGeneratedOnAdd();
 
-                    b.Property<string>("FirstName");
+                b.Property<string>("FirstName");
 
-                    b.Property<string>("LastName");
+                b.Property<bool>("IsLogin");
 
-                    b.Property<string>("Password");
+                b.Property<string>("LastName");
 
-                    b.Property<string>("Sex");
+                b.Property<string>("Password");
 
-                    b.Property<string>("Username");
+                b.Property<long>("SQId");
 
-                    b.HasKey("Id");
+                b.Property<string>("Sex");
 
-                    b.ToTable("User");
-                });
+                b.Property<string>("Username");
+
+                b.HasKey("Id");
+
+                b.ToTable("User");
+            });
 #pragma warning restore 612, 618
         }
     }
