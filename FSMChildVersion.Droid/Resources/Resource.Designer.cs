@@ -6427,9 +6427,9 @@ namespace FSMChildVersion.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Id.listMode = global::FSMChildVersion.Droid.Resource.Id.listMode;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.list_item = global::FSMChildVersion.Droid.Resource.Id.list_item;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.main_appbar = global::FSMChildVersion.Droid.Resource.Id.main_appbar;
-			global::Xamarin.Forms.Platform.Android.Resource.Id.main_scrollview = global::FSMChildVersion.Droid.Resource.Id.main_scrollview;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.main_tablayout = global::FSMChildVersion.Droid.Resource.Id.main_tablayout;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.main_toolbar = global::FSMChildVersion.Droid.Resource.Id.main_toolbar;
+			global::Xamarin.Forms.Platform.Android.Resource.Id.main_viewpager = global::FSMChildVersion.Droid.Resource.Id.main_viewpager;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.masked = global::FSMChildVersion.Droid.Resource.Id.masked;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.media_actions = global::FSMChildVersion.Droid.Resource.Id.media_actions;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.message = global::FSMChildVersion.Droid.Resource.Id.message;
@@ -6478,7 +6478,6 @@ namespace FSMChildVersion.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Id.select_dialog_listview = global::FSMChildVersion.Droid.Resource.Id.select_dialog_listview;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.selected = global::FSMChildVersion.Droid.Resource.Id.selected;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.shellcontent_appbar = global::FSMChildVersion.Droid.Resource.Id.shellcontent_appbar;
-			global::Xamarin.Forms.Platform.Android.Resource.Id.shellcontent_scrollview = global::FSMChildVersion.Droid.Resource.Id.shellcontent_scrollview;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.shellcontent_toolbar = global::FSMChildVersion.Droid.Resource.Id.shellcontent_toolbar;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.shortcut = global::FSMChildVersion.Droid.Resource.Id.shortcut;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.showCustom = global::FSMChildVersion.Droid.Resource.Id.showCustom;
@@ -12058,17 +12057,17 @@ namespace FSMChildVersion.Droid
 			// aapt resource value: 0x7f0b00fa
 			public const int main_appbar = 2131427578;
 			
-			// aapt resource value: 0x7f0b00fd
-			public const int main_scrollview = 2131427581;
-			
 			// aapt resource value: 0x7f0b00fc
 			public const int main_tablayout = 2131427580;
 			
 			// aapt resource value: 0x7f0b00fb
 			public const int main_toolbar = 2131427579;
 			
-			// aapt resource value: 0x7f0b0104
-			public const int masked = 2131427588;
+			// aapt resource value: 0x7f0b00fd
+			public const int main_viewpager = 2131427581;
+			
+			// aapt resource value: 0x7f0b0103
+			public const int masked = 2131427587;
 			
 			// aapt resource value: 0x7f0b00ed
 			public const int media_actions = 2131427565;
@@ -12349,9 +12348,6 @@ namespace FSMChildVersion.Droid
 			// aapt resource value: 0x7f0b00fe
 			public const int shellcontent_appbar = 2131427582;
 			
-			// aapt resource value: 0x7f0b0100
-			public const int shellcontent_scrollview = 2131427584;
-			
 			// aapt resource value: 0x7f0b00ff
 			public const int shellcontent_toolbar = 2131427583;
 			
@@ -12367,8 +12363,8 @@ namespace FSMChildVersion.Droid
 			// aapt resource value: 0x7f0b002e
 			public const int showTitle = 2131427374;
 			
-			// aapt resource value: 0x7f0b0101
-			public const int sliding_tabs = 2131427585;
+			// aapt resource value: 0x7f0b0100
+			public const int sliding_tabs = 2131427584;
 			
 			// aapt resource value: 0x7f0b00a6
 			public const int smallLabel = 2131427494;
@@ -12469,8 +12465,8 @@ namespace FSMChildVersion.Droid
 			// aapt resource value: 0x7f0b0080
 			public const int title_template = 2131427456;
 			
-			// aapt resource value: 0x7f0b0102
-			public const int toolbar = 2131427586;
+			// aapt resource value: 0x7f0b0101
+			public const int toolbar = 2131427585;
 			
 			// aapt resource value: 0x7f0b0047
 			public const int top = 2131427399;
@@ -12511,8 +12507,8 @@ namespace FSMChildVersion.Droid
 			// aapt resource value: 0x7f0b001b
 			public const int view_offset_helper = 2131427355;
 			
-			// aapt resource value: 0x7f0b0103
-			public const int visible = 2131427587;
+			// aapt resource value: 0x7f0b0102
+			public const int visible = 2131427586;
 			
 			// aapt resource value: 0x7f0b00da
 			public const int volume_item_container = 2131427546;

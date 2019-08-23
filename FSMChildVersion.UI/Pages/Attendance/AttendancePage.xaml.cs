@@ -6,7 +6,7 @@ using FSMChildVersion.Core.ViewModels;
 namespace FSMChildVersion.UI.Pages.Attendance
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    [MvxContentPagePresentation(WrapInNavigationPage = true, NoHistory = false)]
+    [MvxMasterDetailPagePresentation(Position = MasterDetailPosition.Detail, NoHistory = true, Title = "Attendance")]
     public partial class AttendancePage : MvxContentPage<AttendanceViewModel>
     {
         public AttendancePage()

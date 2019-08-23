@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<mvxViews:MvxContentPage
+    x:Class="FSMChildVersion.UI.Pages.PerformanceTestingPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FSMChildVersion.UI.Pages"
+    xmlns:mvxViews="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:viewModels="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
+    x:TypeArguments="viewModels:PerformanceTestingViewModel">
+    <Label
+        BackgroundColor="Red"
+        FontSize="100"
+        Text="Hello" />
+</mvxViews:MvxContentPage>

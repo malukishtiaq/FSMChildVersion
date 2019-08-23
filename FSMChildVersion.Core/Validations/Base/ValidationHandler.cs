@@ -11,8 +11,8 @@ namespace FSMChildVersion.Core.Validations
     {
         public readonly IValidator Validator;
         public AbstractValidator<T> ValidationRules;
-        public Validatables LoginValidatablesRef;
-        public Validatables LoginValidatablesVal;
+        public Validatables RefrenceTypeValidatables;
+        public Validatables ValueTypeValidatables;
         private IMvxCommand<string> _clearValidationCommand;
         public IMvxCommand<string> ClearValidationCommand => _clearValidationCommand ?? (_clearValidationCommand = new MvxCommand<string>(ClearValidation));
 
@@ -28,33 +28,33 @@ namespace FSMChildVersion.Core.Validations
         }
         public void SetupForValidationRef<TType>(params Validatable<TType>[] list) where TType : class
         {
-            LoginValidatablesRef = new Validatables(list);
+            RefrenceTypeValidatables = new Validatables(list);
         }
         public void SetupForValidationVal<TType>(params Validatable<TType>[] list) where TType : struct
         {
-            LoginValidatablesVal = new Validatables(list);
+            ValueTypeValidatables = new Validatables(list);
         }
         public OverallValidationResult Validate(T login)
         {
-            return ValidationRules.Validate(login).ApplyResultsTo(LoginValidatablesRef);
+            return ValidationRules.Validate(login).ApplyResultsTo(RefrenceTypeValidatables);
         }
 
         public void ClearValidation(string clearOptions = "")
         {
             if (clearOptions == "Xamarin.Forms.FocusEventArgs")
             {
-                if (LoginValidatablesRef != null)
-                    LoginValidatablesRef.Clear();
-                if (LoginValidatablesVal != null)
-                    LoginValidatablesVal.Clear();
+                if (RefrenceTypeValidatables != null)
+                    RefrenceTypeValidatables.Clear();
+                if (ValueTypeValidatables != null)
+                    ValueTypeValidatables.Clear();
             }
             else
             {
                 (var clearOnlyValidation, var classPropertyNames) = clearOptions.ParseClearOptions();
-                if (LoginValidatablesRef != null)
-                    LoginValidatablesRef.Clear(clearOnlyValidation, classPropertyNames);
-                if (LoginValidatablesVal != null)
-                    LoginValidatablesVal.Clear(clearOnlyValidation, classPropertyNames);
+                if (RefrenceTypeValidatables != null)
+                    RefrenceTypeValidatables.Clear(clearOnlyValidation, classPropertyNames);
+                if (ValueTypeValidatables != null)
+                    ValueTypeValidatables.Clear(clearOnlyValidation, classPropertyNames);
             }
         }
     }

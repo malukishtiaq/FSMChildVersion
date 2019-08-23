@@ -30,12 +30,14 @@ namespace FSMChildVersion.Core.ViewModels
         {
             var request = AddAttendanceRequest.CreateAttendanceRequest(1, ConstantFlags.CheckIn, DateTime.UtcNow, "");
             await SaveCheckInCheckOutAsync(request);
+            IsCheckInEnabled = false;
             return;
         }
         private async Task CheckOutAsync()
         {
             var request = AddAttendanceRequest.CreateAttendanceRequest(1, ConstantFlags.CheckOut, System.DateTime.UtcNow, "");
             await SaveCheckInCheckOutAsync(request);
+            IsCheckInEnabled = true;
             return;
         }
 

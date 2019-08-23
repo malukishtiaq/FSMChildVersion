@@ -2,6 +2,7 @@ using Acr.UserDialogs;
 using Android.App;
 using MvvmCross;
 using MvvmCross.Forms.Platforms.Android.Core;
+using MvvmCross.Platform.Platform;
 using Plugin.Connectivity;
 using Plugin.Connectivity.Abstractions;
 

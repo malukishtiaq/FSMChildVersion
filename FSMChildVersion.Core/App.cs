@@ -1,18 +1,15 @@
 using System;
-using System.Linq;
 using Acr.UserDialogs;
 using AutoMapper;
 using FluentValidation;
 using FSMChildVersion.Core.AutoMapper;
+using FSMChildVersion.Core.Model.Settings;
 using FSMChildVersion.Core.Validations;
 using FSMChildVersion.Core.ViewModels;
-using FSMChildVersion.Repository.DomainModels;
 using FSMChildVersion.Repository.EntityFramework;
 using FSMChildVersion.Repository.EntityFramework.Database;
 using FSMChildVersion.Repository.EntityFramework.GenericHandler;
 using FSMChildVersion.Repository.EntityFramework.UnitOfWork;
-using FSMChildVersion.Repository.RequestProvider;
-using FSMChildVersion.Repository.SQLite;
 using MediatR;
 //using Matcha.BackgroundService;
 using MvvmCross;
@@ -34,23 +31,19 @@ namespace FSMChildVersion.Core
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
+
             CreatableTypes()
                 .EndingWith("Handler")
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
-
-            Mvx.IoCProvider.RegisterType(typeof(IApiService<>), typeof(ApiService<>));
-            Mvx.IoCProvider.RegisterType(typeof(IRepository<>), typeof(Repository<>));
-
-            //Mvx.IoCProvider.RegisterSingleton(() => SQLiteDatabase.Instance);
-
-            Mvx.IoCProvider.RegisterSingleton(() => UserDialogs.Instance);
-            Mvx.IoCProvider.RegisterSingleton(() => CrossConnectivity.Current);
-            Mvx.IoCProvider.RegisterSingleton(theObject: new MapperConfiguration(cfg =>
+            Mvx.IoCProvider.RegisterSingleton<IMapper>(new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new MapperProfile());
             }).CreateMapper());
+
+            Mvx.IoCProvider.LazyConstructAndRegisterSingleton(() => UserDialogs.Instance);
+            Mvx.IoCProvider.LazyConstructAndRegisterSingleton(() => CrossConnectivity.Current);
 
             Mvx.IoCProvider.RegisterType<SFMDatabaseContext>();
 
@@ -85,9 +78,11 @@ namespace FSMChildVersion.Core
 
         private static bool IsLoggedIn()
         {
-            IUnitOfWork UnitOfWork = StaticLocator.GetUnitOfWorkInstance();
-            User item = UnitOfWork.GenericHandler<User>().GetAsQuerable(x => x.IsLogin == true).FirstOrDefault();
-            return item == null ? false : true;
+            var getSettingsRequest = GetSettingsRequest.CreateSettingRequest(ConstantHandlerMessages.IsLoggedIn, true.ToString());
+            IMediator mediator = Mvx.IoCProvider.Resolve<IMediator>();
+            GetSettingsResponse getSettingsResponse = mediator.Send(getSettingsRequest).Result;
+
+            return getSettingsResponse == null ? false : getSettingsResponse.Success;
         }
     }
 }

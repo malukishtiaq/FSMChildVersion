@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Acr.UserDialogs;
 using Android.App;
 using Android.OS;

@@ -42,7 +42,6 @@ namespace FSMChildVersion.Core.ViewModels
         #endregion
 
         #region Public Properties
-        public LoginRequest Login { get; set; } = new LoginRequest();
         #endregion
 
         #region Command Actions
@@ -50,7 +49,7 @@ namespace FSMChildVersion.Core.ViewModels
         {
             try
             {
-                LoginRequest login = LoginValidatablesRef.Populate<LoginRequest>();
+                LoginRequest login = RefrenceTypeValidatables.Populate<LoginRequest>();
                 if (Validate(login).IsValidOverall && Validator.Validate(login).IsValid)
                 {
                     LoginResponse result = await mediator.Send(login).ConfigureAwait(false);

@@ -8,17 +8,17 @@ namespace FSMChildVersion.Common.Constants
         #region Menu List
         private static readonly List<string> MenuItemListForFieldOfficer = new List<string>()
         {
-            AddNewFarmer, ViewFarmer, FieldDay, FarmerMeeting, StockReport, Orders, RoutPlan, ApplyForLeave, Feedback
+            AddNewFarmer, ViewFarmer, FieldDay, FarmerMeeting, StockReport, Orders, RoutPlan, ApplyForLeave, Feedback, Attendance
         };
 
         private static readonly List<string> MenuItemListForAreaManager = new List<string>()
         {
-            AddNewDealer, ViewDealers, Policies, FieldDay, FarmerMeeting, RateList, Orders, RoutPlan, ApplyForLeave, Feedback
+            AddNewDealer, ViewDealers, Policies, FieldDay, FarmerMeeting, RateList, Orders, RoutPlan, ApplyForLeave, Feedback, Attendance
         };
 
         private static readonly List<string> MenuItemListForZSM_RSM = new List<string>()
         {
-            AddNewDealer, ViewDealers, Policies, FieldDay, FarmerMeeting, RateList, Orders, RoutPlan, ApplyForLeave, Feedback
+            AddNewDealer, ViewDealers, Policies, FieldDay, FarmerMeeting, RateList, Orders, RoutPlan, ApplyForLeave, Feedback, Attendance
         };
 
         #region Field Officer Specific
@@ -56,6 +56,7 @@ namespace FSMChildVersion.Common.Constants
         public const string RoutPlan = "Rout Plan";
         public const string ApplyForLeave = "Apply For Leave";
         public const string Feedback = "Feedback";
+        public const string Attendance = "Attendance";
         public const string RateList = "Rate List";
         #endregion
 

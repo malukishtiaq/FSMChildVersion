@@ -20,6 +20,8 @@ namespace FSMChildVersion.Core.Handler
             try
             {
                 await settingsService.AddOrUpdateValue(request.Key, request.Value).ConfigureAwait(false);
+                await settingsService.AddOrUpdateValue(ConstantHandlerMessages.IsLoggedIn, true.ToString()).ConfigureAwait(false);
+
                 var result = settingsService.GetValueOrDefault(request.Key, "");
                 if (result == null || result == "")
                 {

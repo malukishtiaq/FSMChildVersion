@@ -63,7 +63,6 @@ namespace FSMChildVersion.Core.ViewModels
 
         private async Task ChoosePageToBeDisplayedAsync(ERoles roles)
         {
-            return;
             switch (roles)
             {
                 case ERoles.FieldOfficer:
@@ -96,11 +95,14 @@ namespace FSMChildVersion.Core.ViewModels
                         case ConstantString.Feedback:
                             await NavigationService.Navigate<FeedbackViewModel>();
                             break;
+                        case ConstantString.Attendance:
+                            await NavigationService.Navigate<AttendanceViewModel>();
+                            break;
                         default:
                             break;
                     };
                     break;
-                case ERoles.AreaManager:
+                case ERoles.AreaManager | ERoles.ZSM_RSM:
                     switch (SelectedMenuItem)
                     {
                         case ConstantString.AddNewDealer:
@@ -133,47 +135,50 @@ namespace FSMChildVersion.Core.ViewModels
                         case ConstantString.Feedback:
                             await NavigationService.Navigate<FeedbackViewModel>();
                             break;
-                        default:
-                            break;
-                    }
-                    break;
-                case ERoles.ZSM_RSM:
-                    switch (SelectedMenuItem)
-                    {
-                        case ConstantString.AddNewDealer:
-                            await NavigationService.Navigate<AddNewDealerViewModel>();
-                            break;
-                        case ConstantString.ViewDealers:
-                            await NavigationService.Navigate<ViewDelearViewModel>();
-                            break;
-                        case ConstantString.Policies:
-                            await NavigationService.Navigate<ViewPoliciesViewModel>();
-                            break;
-                        case ConstantString.FieldDay:
-                            await NavigationService.Navigate<FieldDayViewModel>();
-                            break;
-                        case ConstantString.FarmerMeeting:
-                            await NavigationService.Navigate<FarmerMeetingViewModel>();
-                            break;
-                        case ConstantString.RateList:
-                            await NavigationService.Navigate<RateListViewModel>();
-                            break;
-                        case ConstantString.Orders:
-                            await NavigationService.Navigate<OrdersViewModel>();
-                            break;
-                        case ConstantString.RoutPlan:
-                            await NavigationService.Navigate<RoutPlanViewModel>();
-                            break;
-                        case ConstantString.ApplyForLeave:
-                            await NavigationService.Navigate<LeavePanelViewModel>();
-                            break;
-                        case ConstantString.Feedback:
-                            await NavigationService.Navigate<FeedbackViewModel>();
+                        case ConstantString.Attendance:
+                            await NavigationService.Navigate<AttendanceViewModel>();
                             break;
                         default:
                             break;
                     }
                     break;
+                //case ERoles.ZSM_RSM:
+                //    switch (SelectedMenuItem)
+                //    {
+                //        case ConstantString.AddNewDealer:
+                //            await NavigationService.Navigate<AddNewDealerViewModel>();
+                //            break;
+                //        case ConstantString.ViewDealers:
+                //            await NavigationService.Navigate<ViewDelearViewModel>();
+                //            break;
+                //        case ConstantString.Policies:
+                //            await NavigationService.Navigate<ViewPoliciesViewModel>();
+                //            break;
+                //        case ConstantString.FieldDay:
+                //            await NavigationService.Navigate<FieldDayViewModel>();
+                //            break;
+                //        case ConstantString.FarmerMeeting:
+                //            await NavigationService.Navigate<FarmerMeetingViewModel>();
+                //            break;
+                //        case ConstantString.RateList:
+                //            await NavigationService.Navigate<RateListViewModel>();
+                //            break;
+                //        case ConstantString.Orders:
+                //            await NavigationService.Navigate<OrdersViewModel>();
+                //            break;
+                //        case ConstantString.RoutPlan:
+                //            await NavigationService.Navigate<RoutPlanViewModel>();
+                //            break;
+                //        case ConstantString.ApplyForLeave:
+                //            await NavigationService.Navigate<LeavePanelViewModel>();
+                //            break;
+                //        case ConstantString.Feedback:
+                //            await NavigationService.Navigate<FeedbackViewModel>();
+                //            break;
+                //        default:
+                //            break;
+                //    }
+                //    break;
                 default:
                     break;
             }

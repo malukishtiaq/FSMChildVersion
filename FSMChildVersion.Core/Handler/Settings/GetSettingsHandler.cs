@@ -19,7 +19,7 @@ namespace FSMChildVersion.Core.Handler
         {
             try
             {
-                var result = settingsService.GetValueOrDefault(request.Key, "");
+                var result = settingsService.GetValueOrDefault(request.Key, request.Value);
                 return result == null || result == ""
                     ? GetSettingsResponse.WithStatusAndMessage(false, ConstantHandlerMessages.GetCheckInFalg)
                     : GetSettingsResponse.WithStatus(true);
