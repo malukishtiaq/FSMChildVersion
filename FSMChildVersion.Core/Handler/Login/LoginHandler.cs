@@ -1,8 +1,8 @@
 using System.Threading;
 using System.Threading.Tasks;
-using FSMChildVersion.Core.Model;
-using FSMChildVersion.Core.Model.Login;
-using FSMChildVersion.Core.Services;
+using FSMChildVersion.Common.Model;
+using FSMChildVersion.Common.Model.Login;
+using FSMChildVersion.Service.Services;
 using MediatR;
 
 namespace FSMChildVersion.Core.Handler

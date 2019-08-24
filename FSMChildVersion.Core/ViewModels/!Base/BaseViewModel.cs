@@ -13,7 +13,7 @@ namespace FSMChildVersion.Core.ViewModels
     public abstract class BaseViewModel : MvxViewModel
     {
         public readonly IMvxNavigationService NavigationService;
-        public readonly IUserDialogs PageDialog;
+        public IUserDialogs PageDialog;
         public bool IsBusy { get; set; }
         public bool IsNotConnected { get; set; }
 
@@ -39,10 +39,9 @@ namespace FSMChildVersion.Core.ViewModels
         public string ResponseMessage{  get => _responseMessage; set => SetProperty(ref _responseMessage, value); }
         public BaseViewModel()
         {
-            PageDialog = Mvx.IoCProvider.Resolve<IUserDialogs>();
             NavigationService = Mvx.IoCProvider.Resolve<IMvxNavigationService>();
-
             InternetConnectionHandler();
+            _ = Task.Delay(1000).ContinueWith(t => PageDialog = Mvx.IoCProvider.Resolve<IUserDialogs>());
         }
 
         #region Internet Connection

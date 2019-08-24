@@ -8,6 +8,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="AutoMapper\**" />
+    <Compile Remove="Model\**" />
+    <Compile Remove="Services\**" />
+    <EmbeddedResource Remove="AutoMapper\**" />
+    <EmbeddedResource Remove="Model\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="AutoMapper\**" />
+    <None Remove="Model\**" />
+    <None Remove="Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ViewModels\Page\Page1ViewModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.0.4" />
     <PackageReference Include="AutoMapper" Version="8.1.1" />
     <PackageReference Include="FluentValidation" Version="8.4.0" />
@@ -32,6 +48,11 @@
   <ItemGroup>
     <ProjectReference Include="..\FSMChildVersion.Common\FSMChildVersion.Common.csproj" />
     <ProjectReference Include="..\FSMChildVersion.Repository\FSMChildVersion.Repository.csproj" />
+    <ProjectReference Include="..\FSMChildVersion.Service\FSMChildVersion.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\Page\" />
   </ItemGroup>
 
 </Project>

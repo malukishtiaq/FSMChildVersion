@@ -1,9 +1,8 @@
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using FSMChildVersion.Core.Model;
-using FSMChildVersion.Core.Model.Login;
-using FSMChildVersion.Core.Model.Settings;
+using FSMChildVersion.Common.Model.Login;
+using FSMChildVersion.Common.Model.Settings;
 using FSMChildVersion.Core.Validations;
 using MediatR;
 using MvvmCross.Commands;

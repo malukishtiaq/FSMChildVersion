@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Services\AccessLocalDbService.cs" />
+    <Compile Remove="Services\MakeUpService.cs" />
+    <Compile Remove="Services\ReddItService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FSMChildVersion.Common\FSMChildVersion.Common.csproj" />
+    <ProjectReference Include="..\FSMChildVersion.Repository\FSMChildVersion.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

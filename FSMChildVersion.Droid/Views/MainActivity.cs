@@ -18,12 +18,10 @@ namespace FSMChildVersion.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
-            Rg.Plugins.Popup.Popup.Init(this, bundle);
-
-            CachedImageRenderer.Init(true);
-
             UserDialogs.Init(() => Mvx.IoCProvider.Resolve<IMvxAndroidCurrentTopActivity>().Activity);
-
+            
+            Rg.Plugins.Popup.Popup.Init(this, bundle);
+            CachedImageRenderer.Init(true);
             base.OnCreate(bundle);
         }
         public override void OnBackPressed()

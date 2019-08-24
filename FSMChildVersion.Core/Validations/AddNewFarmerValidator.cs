@@ -1,5 +1,5 @@
 using FluentValidation;
-using FSMChildVersion.Core.Model.Farmer;
+using FSMChildVersion.Common.Model.Farmer;
 
 namespace FSMChildVersion.Core.Validations
 {
@@ -11,7 +11,6 @@ namespace FSMChildVersion.Core.Validations
             RuleFor(c => c.FarmerName).NotEmpty().WithMessage("Farmer name should not be empty.");
             RuleFor(c => c.Area).NotEmpty().WithMessage("Location should not be empty.");
             RuleFor(c => c.Acre).NotEmpty().WithMessage("Crop should not be empty.");
-            RuleFor(c => c.Image).NotEmpty().WithMessage("Image should not be empty.");
         }
     }
 }

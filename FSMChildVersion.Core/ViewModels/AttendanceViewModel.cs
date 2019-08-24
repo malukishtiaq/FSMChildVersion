@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using FSMChildVersion.Core.Model.Attendance;
+using FSMChildVersion.Common.Model.Attendance;
 using MediatR;
 using MvvmCross.Commands;
 

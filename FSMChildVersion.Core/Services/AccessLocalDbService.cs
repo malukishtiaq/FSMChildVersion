@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using FSMChildVersion.Core.Model;
+using FSMChildVersion.Common.Model;
 using FSMChildVersion.Repository.APIManager;
 using FSMChildVersion.Repository.DomainModels;
 using FSMChildVersion.Repository.EntityFramework.UnitOfWork;

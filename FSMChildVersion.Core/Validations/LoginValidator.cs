@@ -1,5 +1,5 @@
 using FluentValidation;
-using FSMChildVersion.Core.Model;
+using FSMChildVersion.Common.Model.Login;
 
 namespace FSMChildVersion.Core.Validations
 {

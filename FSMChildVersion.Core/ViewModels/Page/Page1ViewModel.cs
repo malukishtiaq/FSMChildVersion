@@ -1,13 +1,11 @@
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using MvvmCross;
+using FSMChildVersion.Common.Model;
+using FSMChildVersion.Service.Services;
 using MvvmCross.Commands;
-using FSMChildVersion.Core.Model;
-using FSMChildVersion.Core.Services;
 using Newtonsoft.Json;
 
 namespace FSMChildVersion.Core.ViewModels.Page
@@ -78,7 +76,7 @@ namespace FSMChildVersion.Core.ViewModels.Page
         }
         private async Task GetMakupsAsync()
         {
-            var makeUpModels = new ObservableCollection<MakeUpModel>(); 
+            var makeUpModels = new ObservableCollection<MakeUpModel>();
             List<MakeUpModel> makeUpsResponse = await makeupLocalDbService.GetMakeupLocalDataAsync();
 
             if (makeUpsResponse is null || makeUpsResponse.Count == 0)

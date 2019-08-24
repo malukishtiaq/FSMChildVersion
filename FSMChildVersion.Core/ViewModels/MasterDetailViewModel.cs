@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using FSMChildVersion.Core.Model.Settings;
+using FSMChildVersion.Common.Model.Settings;
 using MediatR;
 using MvvmCross.Navigation;
 using MvvmCross.ViewModels;

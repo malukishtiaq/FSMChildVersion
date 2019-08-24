@@ -1,7 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
-using FSMChildVersion.Core.Model.Farmer;
-using FSMChildVersion.Core.Services;
+using FSMChildVersion.Common.Model.Farmer;
+using FSMChildVersion.Service.Services;
 using MediatR;
 
 namespace FSMChildVersion.Core.Handler.Farmer

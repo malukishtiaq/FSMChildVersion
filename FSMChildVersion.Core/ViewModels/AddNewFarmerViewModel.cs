@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using FSMChildVersion.Core.Model.Farmer;
+using FSMChildVersion.Common.Model.Farmer;
 using FSMChildVersion.Core.Validations;
 using MediatR;
 using MvvmCross.Commands;

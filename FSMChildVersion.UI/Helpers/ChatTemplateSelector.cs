@@ -1,4 +1,4 @@
-using FSMChildVersion.Core.Model;
+using FSMChildVersion.Common.Model;
 using FSMChildVersion.UI.Pages.Cells;
 using Xamarin.Forms;
 

@@ -1,21 +1,17 @@
 using System;
 using Acr.UserDialogs;
-using AutoMapper;
 using FluentValidation;
-using FSMChildVersion.Core.AutoMapper;
-using FSMChildVersion.Core.Model.Settings;
+using FSMChildVersion.Common.Model.Settings;
 using FSMChildVersion.Core.Validations;
 using FSMChildVersion.Core.ViewModels;
 using FSMChildVersion.Repository.EntityFramework;
-using FSMChildVersion.Repository.EntityFramework.Database;
 using FSMChildVersion.Repository.EntityFramework.GenericHandler;
-using FSMChildVersion.Repository.EntityFramework.UnitOfWork;
+using FSMChildVersion.Service;
 using MediatR;
 //using Matcha.BackgroundService;
 using MvvmCross;
 using MvvmCross.IoC;
 using MvvmCross.ViewModels;
-using Plugin.Connectivity;
 
 namespace FSMChildVersion.Core
 {
@@ -26,29 +22,16 @@ namespace FSMChildVersion.Core
 
         public override void Initialize()
         {
-            CreatableTypes()
-                .EndingWith("Service")
-                .AsInterfaces()
-                .RegisterAsLazySingleton();
+            //CreatableTypes()
+            //    .EndingWith("Service")
+            //    .AsInterfaces()
+            //    .RegisterAsLazySingleton();
 
 
             CreatableTypes()
                 .EndingWith("Handler")
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
-
-            Mvx.IoCProvider.RegisterSingleton<IMapper>(new MapperConfiguration(cfg =>
-            {
-                cfg.AddProfile(new MapperProfile());
-            }).CreateMapper());
-
-            Mvx.IoCProvider.LazyConstructAndRegisterSingleton(() => UserDialogs.Instance);
-            Mvx.IoCProvider.LazyConstructAndRegisterSingleton(() => CrossConnectivity.Current);
-
-            Mvx.IoCProvider.RegisterType<SFMDatabaseContext>();
-
-            Mvx.IoCProvider.RegisterType<IValidator, LoginValidator>();
-            Mvx.IoCProvider.RegisterType<IUnitOfWork, UnitOfWork>();
 
             Mvx.IoCProvider.LazyConstructAndRegisterSingleton<IMediator, Mediator>();
 
@@ -61,6 +44,11 @@ namespace FSMChildVersion.Core
 
                 return Array.CreateInstance(serviceType.GenericTypeArguments[0], 0);
             });
+
+            Mvx.IoCProvider.RegisterSingleton<IUserDialogs>(() => UserDialogs.Instance);
+            MvxBootstrap.Initialize();
+
+            Mvx.IoCProvider.RegisterType<IValidator, LoginValidator>();
 
             if (!IsLoggedIn())
             {

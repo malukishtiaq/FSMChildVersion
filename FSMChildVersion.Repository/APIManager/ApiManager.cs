@@ -17,7 +17,7 @@ namespace FSMChildVersion.Repository.APIManager
 {
     public abstract class ApiManager
     {
-        public readonly IUserDialogs UserDialogs;
+        public IUserDialogs UserDialogs;
         public readonly IConnectivity Connectivity;
         public readonly IMapper AutoMapper;
         public readonly IUnitOfWork UnitOfWork;
@@ -29,12 +29,12 @@ namespace FSMChildVersion.Repository.APIManager
 
         public ApiManager()
         {
+            UnitOfWork = Mvx.IoCProvider.Resolve<IUnitOfWork>();
             AutoMapper = Mvx.IoCProvider.Resolve<IMapper>();
             Connectivity = Mvx.IoCProvider.Resolve<IConnectivity>();
             IsConnected = Connectivity.IsConnected;
             Connectivity.ConnectivityChanged += OnConnectivityChanged;
-            UserDialogs = Mvx.IoCProvider.Resolve<IUserDialogs>();
-            UnitOfWork = Mvx.IoCProvider.Resolve<IUnitOfWork>();
+            _ = Task.Delay(1000).ContinueWith(t => UserDialogs = Mvx.IoCProvider.Resolve<IUserDialogs>());
         }
 
         private void OnConnectivityChanged(object sender, ConnectivityChangedEventArgs e)

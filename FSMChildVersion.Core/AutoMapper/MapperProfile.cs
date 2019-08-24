@@ -1,6 +1,6 @@
 using AutoMapper;
-using FSMChildVersion.Core.Model;
-using FSMChildVersion.Core.Model.Attendance;
+using FSMChildVersion.Common.Model;
+using FSMChildVersion.Common.Model.Attendance;
 using FSMChildVersion.Repository.DomainModels;
 
 namespace FSMChildVersion.Core.AutoMapper

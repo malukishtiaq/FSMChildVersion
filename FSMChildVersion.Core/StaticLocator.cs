@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Acr.UserDialogs;
-using FSMChildVersion.Core.Services;
 using FSMChildVersion.Repository.EntityFramework.UnitOfWork;
+using FSMChildVersion.Service.Services;
 using MediatR;
 using MvvmCross;
 

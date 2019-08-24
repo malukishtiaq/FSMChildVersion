@@ -1,15 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using FluentValidation;
-using FSMChildVersion.Core.Model;
-using FSMChildVersion.Core.Services;
-using FSMChildVersion.Core.Validations;
-using MvvmCross.Commands;
-using Plugin.FluentValidationRules;
-using Xamarin.Forms;
-
 namespace FSMChildVersion.Core.ViewModels
 {
     ////    public class CaleeViewModel : ValidationHandler<LoginModel>
