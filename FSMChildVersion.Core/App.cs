@@ -1,7 +1,7 @@
 using System;
 using Acr.UserDialogs;
 using FluentValidation;
-using FSMChildVersion.Common.Model.Settings;
+using FSMChildVersion.Common.RequestResponseModel.Settings;
 using FSMChildVersion.Core.Validations;
 using FSMChildVersion.Core.ViewModels;
 using FSMChildVersion.Repository.EntityFramework;
@@ -22,12 +22,6 @@ namespace FSMChildVersion.Core
 
         public override void Initialize()
         {
-            //CreatableTypes()
-            //    .EndingWith("Service")
-            //    .AsInterfaces()
-            //    .RegisterAsLazySingleton();
-
-
             CreatableTypes()
                 .EndingWith("Handler")
                 .AsInterfaces()
@@ -47,8 +41,6 @@ namespace FSMChildVersion.Core
 
             Mvx.IoCProvider.RegisterSingleton<IUserDialogs>(() => UserDialogs.Instance);
             MvxBootstrap.Initialize();
-
-            Mvx.IoCProvider.RegisterType<IValidator, LoginValidator>();
 
             if (!IsLoggedIn())
             {

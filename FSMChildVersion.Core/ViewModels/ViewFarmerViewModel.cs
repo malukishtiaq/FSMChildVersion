@@ -1,37 +1,41 @@
-using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using FSMChildVersion.Common.Model;
+using FSMChildVersion.Common.RequestResponseModel.Farmer;
+using MediatR;
 using MvvmCross.Commands;
 
 namespace FSMChildVersion.Core.ViewModels
 {
     public class ViewFarmerViewModel : BaseViewModel
     {
-
-        public ViewFarmerViewModel()
+        private readonly IMediator mediator;
+        public ViewFarmerViewModel(IMediator mediator)
         {
-        }
-        private ObservableCollection<FarmerModel> famerList;
-        private FarmerModel tappedFarmer;
-        public ObservableCollection<FarmerModel> FarmerList => famerList ?? (famerList = CreateClubs());
-
-        private ObservableCollection<FarmerModel> CreateClubs()
-        {
-            return new ObservableCollection<FarmerModel>
-            {
-                new FarmerModel(){Area = "Liverpool 1", Count = 1, Name = "England 1", MobileNo = "123456 1"},
-                new FarmerModel(){Area = "Liverpool 2", Count = 2, Name = "England 2", MobileNo = "123456 2"},
-                new FarmerModel(){Area = "Liverpool 3", Count = 3, Name = "England 3", MobileNo = "123456 3"},
-                new FarmerModel(){Area = "Liverpool 4", Count = 4, Name = "England 4", MobileNo = "123456 4"},
-                new FarmerModel(){Area = "Liverpool 5", Count = 5, Name = "England 5", MobileNo = "123456 5"},
-                new FarmerModel(){Area = "Liverpool 6", Count = 6, Name = "England 6", MobileNo = "123456 6"},
-                new FarmerModel(){Area = "Liverpool 7", Count = 7, Name = "England 7", MobileNo = "123456 7"},
-            };
+            this.mediator = mediator;
         }
 
-        public FarmerModel TappedFarmer
+        public override void Prepare()
+        {
+            var allFarmersRequest = new GetAllFarmersRequest();
+            List<GetAllFarmersResponse> result = mediator.Send(allFarmersRequest).Result;
+            //FarmerList = result.ToObservableCollection();
+        }
+
+        public async Task InitializeAsync()
+        {
+            await base.Initialize();
+        }
+        private ObservableCollection<GetAllFarmersResponse> famerList;
+        private GetAllFarmersResponse tappedFarmer;
+        public ObservableCollection<GetAllFarmersResponse> FarmerList
+        {
+            get => famerList;
+            set => SetProperty(ref famerList, value);
+        }
+
+        public GetAllFarmersResponse TappedFarmer
         {
             get => tappedFarmer;
             set

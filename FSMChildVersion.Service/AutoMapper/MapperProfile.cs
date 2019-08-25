@@ -1,6 +1,7 @@
 using AutoMapper;
-using FSMChildVersion.Common.Model;
-using FSMChildVersion.Common.Model.Attendance;
+using FSMChildVersion.Common.RequestResponseModel;
+using FSMChildVersion.Common.RequestResponseModel.Attendance;
+using FSMChildVersion.Common.RequestResponseModel.Farmer;
 using FSMChildVersion.Repository.DomainModels;
 
 namespace FSMChildVersion.Service.AutoMapper
@@ -14,6 +15,15 @@ namespace FSMChildVersion.Service.AutoMapper
 
             CreateMap<Attendance, AddAttendanceRequest>();
             CreateMap<AddAttendanceRequest, Attendance>();
+
+            CreateMap<FieldDay, AddFieldDayRequest>();
+            CreateMap<AddFieldDayRequest, FieldDay>();
+
+            CreateMap<Farmer, AddNewFarmerRequest>();
+            CreateMap<AddNewFarmerRequest, Farmer>();
+
+            CreateMap<FarmerMeeting, AddFarmerMeetingRequest>();
+            CreateMap<AddFarmerMeetingRequest, FarmerMeeting>();
         }
     }
 }

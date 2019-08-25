@@ -28,11 +28,6 @@ namespace FSMChildVersion.Service
                 .EndingWith("Service")
                 .AsInterfaces()
                 .RegisterAsSingleton();
-
-            //typeof(MvxBootstrap).GetTypeInfo().Assembly.CreatableTypes()
-            //    .EndingWith("Client")
-            //    .AsInterfaces()
-            //    .RegisterAsLazySingleton();
         }
     }
 }

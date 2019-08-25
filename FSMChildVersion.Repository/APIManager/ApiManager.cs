@@ -34,7 +34,17 @@ namespace FSMChildVersion.Repository.APIManager
             Connectivity = Mvx.IoCProvider.Resolve<IConnectivity>();
             IsConnected = Connectivity.IsConnected;
             Connectivity.ConnectivityChanged += OnConnectivityChanged;
-            _ = Task.Delay(1000).ContinueWith(t => UserDialogs = Mvx.IoCProvider.Resolve<IUserDialogs>());
+            InitializeDialog();
+        }
+        private void InitializeDialog()
+        {
+            ///When project launches, first of all it tries to register all the services.
+            ///And all services are being inherited from ApiManagerService. This class initializes
+            ///Acr.Dialog in the cons. But at that time Acr.Dialog not been initialized from main activity.
+            ///this delay was added, so that main activity code can initializes Acr.Dialog. And than it can resolve
+            ///the Acr.Dialog instance from DI.
+            ///there is problem with this approach. This will always add a delay of few milliseconds. yet to be handled
+            _ = Task.Delay(2000).ContinueWith(t => UserDialogs = Mvx.IoCProvider.Resolve<IUserDialogs>());
         }
 
         private void OnConnectivityChanged(object sender, ConnectivityChangedEventArgs e)

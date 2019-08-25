@@ -1,8 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using FSMChildVersion.Common.Model.Farmer;
-using FSMChildVersion.Common.Model.Feedback;
-using FSMChildVersion.Core.Model.Farmer;
+using FSMChildVersion.Common.RequestResponseModel.Farmer;
+using FSMChildVersion.Common.RequestResponseModel.Feedback;
 using FSMChildVersion.Repository.APIManager;
 using FSMChildVersion.Repository.DomainModels;
 
@@ -15,9 +15,21 @@ namespace FSMChildVersion.Service.Services
             if (userModel is null)
                 throw new ArgumentNullException(nameof(userModel));
 
+            var list = new List<Farmer>()
+            {
+                new Farmer() { FarmerName = "Farmer 1", Area = "England 1", MobileNo = "123456 1", Acre="1" },
+                new Farmer() { FarmerName = "Farmer 2", Area = "England 2", MobileNo = "123456 2", Acre="2" },
+                new Farmer() { FarmerName = "Farmer 3", Area = "England 3", MobileNo = "123456 3", Acre="3" },
+                new Farmer() { FarmerName = "Farmer 4", Area = "England 4", MobileNo = "123456 4", Acre="4" },
+                new Farmer() { FarmerName = "Farmer 5", Area = "England 5", MobileNo = "123456 5", Acre="5" },
+                new Farmer() { FarmerName = "Farmer 6", Area = "England 6", MobileNo = "123456 6", Acre="6" },
+                new Farmer() { FarmerName = "Farmer 7", Area = "England 7", MobileNo = "123456 7", Acre="7" },
+            };
+
             Farmer farmer = AutoMapper.Map<Farmer>(userModel);
 
             farmer = UnitOfWork.GenericHandler<Farmer>().Insert(farmer);
+            UnitOfWork.GenericHandler<Farmer>().InsertRange(list);
             UnitOfWork.Save();
 
             return Task.FromResult(AutoMapper.Map<AddNewFarmerRequest>(farmer));

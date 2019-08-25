@@ -1,6 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
-using FSMChildVersion.Common.Model.Feedback;
+using FSMChildVersion.Common.RequestResponseModel.Feedback;
 using FSMChildVersion.Service.Services;
 using MediatR;
 

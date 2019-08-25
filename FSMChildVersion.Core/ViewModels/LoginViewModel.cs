@@ -1,8 +1,8 @@
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using FSMChildVersion.Common.Model.Login;
-using FSMChildVersion.Common.Model.Settings;
+using FSMChildVersion.Common.RequestResponseModel.Login;
+using FSMChildVersion.Common.RequestResponseModel.Settings;
 using FSMChildVersion.Core.Validations;
 using MediatR;
 using MvvmCross.Commands;
@@ -18,6 +18,7 @@ namespace FSMChildVersion.Core.ViewModels
         public LoginViewModel(IMediator mediator) : base(new LoginValidator())
         {
             this.mediator = mediator;
+            Validator = new LoginValidator();
             SetupForValidationRef(Username, Password);
         }
 
@@ -29,11 +30,22 @@ namespace FSMChildVersion.Core.ViewModels
         {
             await base.Initialize();
         }
+        public override void ViewDisappeared()
+        {
+            Validator = null;
+            base.ViewDisappeared();
+        }
         #endregion
 
         #region Validation Setup
         public Validatable<string> Username { get; set; } = new Validatable<string>(nameof(LoginRequest.Username));
         public Validatable<string> Password { get; set; } = new Validatable<string>(nameof(LoginRequest.Password));
+
+        private void ResetValidateableFields()
+        {
+            Username.Value = string.Empty;
+            Password.Value = string.Empty;
+        }
         #endregion
 
         #region Commands
@@ -55,7 +67,7 @@ namespace FSMChildVersion.Core.ViewModels
                     if (result == null)
                     {
                         ResponseMessage = ConstantsViewModel.LoginResponseNull;
-                        IsResponseVisible = false;
+                        IsResponseVisible = true;
                     }
                     else
                     {

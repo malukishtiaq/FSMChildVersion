@@ -16,8 +16,4 @@
     <Folder Include="Migrations\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\FSMChildVersion.Repository\FSMChildVersion.Repository.csproj" />
-  </ItemGroup>
-
 </Project>

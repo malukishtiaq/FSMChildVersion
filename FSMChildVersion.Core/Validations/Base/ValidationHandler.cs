@@ -1,3 +1,4 @@
+using System;
 using FluentValidation;
 using FSMChildVersion.Core.ViewModels;
 using MvvmCross;
@@ -9,7 +10,7 @@ namespace FSMChildVersion.Core.Validations
     [PropertyChanged.AddINotifyPropertyChangedInterface]
     public abstract class ValidationHandler<T> : BaseViewModel, IValidate<T>
     {
-        public readonly IValidator Validator;
+        public IValidator Validator;
         public AbstractValidator<T> ValidationRules;
         public Validatables RefrenceTypeValidatables;
         public Validatables ValueTypeValidatables;
@@ -20,7 +21,6 @@ namespace FSMChildVersion.Core.Validations
         protected ValidationHandler(AbstractValidator<T> validationRules)
         {
             ValidationRules = validationRules;
-            Validator = Mvx.IoCProvider.Resolve<IValidator>();
         }
 
         public void SetupForValidation()

@@ -1,6 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
-using FSMChildVersion.Common.Model.Farmer;
+using FSMChildVersion.Common.RequestResponseModel.Farmer;
 using FSMChildVersion.Service.Services;
 using MediatR;
 
@@ -23,11 +23,11 @@ namespace FSMChildVersion.Core.Handler.Farmer
 
                 if (result == null)
                 {
-                    return AddFieldDayResponse.WithStatusAndMessage(false, ConstantHandlerMessages.AddNewFarmerFailure);
+                    return AddFieldDayResponse.WithStatusAndMessage(false, ConstantHandlerMessages.AddNewFielddaySuccess);
                 }
                 else
                 {
-                    return AddFieldDayResponse.WithStatusAndMessage(true, ConstantHandlerMessages.AddNewFarmerSuccess);
+                    return AddFieldDayResponse.WithStatusAndMessage(true, ConstantHandlerMessages.AddNewFielddaySuccess);
                 }
             }
             catch (System.Exception ex)

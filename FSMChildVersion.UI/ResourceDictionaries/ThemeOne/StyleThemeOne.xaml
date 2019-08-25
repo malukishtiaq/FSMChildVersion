@@ -61,5 +61,8 @@
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
     </Style>
 
-
+    <Style x:Key="ErrorLabelStyle" TargetType="{x:Type Label}">
+        <Setter Property="TextColor" Value="{StaticResource ErrorColor}" />
+        <Setter Property="Margin" Value="0,-5,0,0" />
+    </Style>
 </ResourceDictionary>

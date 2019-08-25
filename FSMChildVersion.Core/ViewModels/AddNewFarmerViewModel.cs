@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using FSMChildVersion.Common.Model.Farmer;
+using FSMChildVersion.Common.RequestResponseModel.Farmer;
 using FSMChildVersion.Core.Validations;
 using MediatR;
 using MvvmCross.Commands;
@@ -14,7 +14,9 @@ namespace FSMChildVersion.Core.ViewModels
         public AddNewFarmerViewModel(IMediator mediator) : base(new AddNewFarmerValidator())
         {
             this.mediator = mediator;
+            Validator = new AddNewFarmerValidator();
             SetupForValidationRef(Acre, FarmerName, Area, MobileNo);
+
         }
         public override void Prepare()
         {
@@ -23,6 +25,11 @@ namespace FSMChildVersion.Core.ViewModels
         {
             await base.Initialize();
         }
+        public override void ViewDisappeared()
+        {
+            Validator = null;
+            base.ViewDisappeared();
+        }
         #endregion
 
         #region Validation Setup
@@ -30,6 +37,14 @@ namespace FSMChildVersion.Core.ViewModels
         public Validatable<string> FarmerName { get; set; } = new Validatable<string>(nameof(AddNewFarmerRequest.FarmerName));
         public Validatable<string> Area { get; set; } = new Validatable<string>(nameof(AddNewFarmerRequest.Area));
         public Validatable<string> MobileNo { get; set; } = new Validatable<string>(nameof(AddNewFarmerRequest.MobileNo));
+
+        private void ResetValidateableFields()
+        {
+            Acre.Value = string.Empty;
+            FarmerName.Value = string.Empty;
+            Area.Value = string.Empty;
+            MobileNo.Value = string.Empty;
+        }
         #endregion
 
         #region Commands
@@ -51,9 +66,11 @@ namespace FSMChildVersion.Core.ViewModels
                 }
                 else if (result.Success)
                 {
+                    ResetValidateableFields();
+
                     ResponseMessage = result.Message;
                 }
-                IsResponseVisible = false;
+                IsResponseVisible = true;
             }
         }
         #endregion

@@ -2,7 +2,6 @@ using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
-using FluentValidation;
 using MvvmCross;
 using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
@@ -36,11 +35,23 @@ namespace FSMChildVersion.Core.ViewModels
         }
 
         private string _responseMessage;
-        public string ResponseMessage{  get => _responseMessage; set => SetProperty(ref _responseMessage, value); }
+        public string ResponseMessage { get => _responseMessage; set => SetProperty(ref _responseMessage, value); }
         public BaseViewModel()
         {
             NavigationService = Mvx.IoCProvider.Resolve<IMvxNavigationService>();
             InternetConnectionHandler();
+
+            InitializeDialog();
+        }
+
+        private void InitializeDialog()
+        {
+            ///When project launches, first of all it tries to register all the services.
+            ///And all services are being inherited from ApiManagerService. This class initializes
+            ///Acr.Dialog in the cons. But at that time Acr.Dialog not been initialized from main activity.
+            ///this delay was added, so that main activity code can initializes Acr.Dialog. And than it can resolve
+            ///the Acr.Dialog instance from DI.
+            ///there is problem with this approach. This will always add a delay of few milliseconds. yet to be handled
             _ = Task.Delay(1000).ContinueWith(t => PageDialog = Mvx.IoCProvider.Resolve<IUserDialogs>());
         }
 
@@ -75,14 +86,14 @@ namespace FSMChildVersion.Core.ViewModels
                 IsBusy = true;
 
                 if (showLoading)
-                    PageDialog.ShowLoading(loadinMessage ?? "Loading");
+                    PageDialog?.ShowLoading(loadinMessage ?? "Loading");
 
                 await task;
             }
             catch (Exception e)
             {
                 IsBusy = false;
-                PageDialog.HideLoading();
+                PageDialog?.HideLoading();
                 Debug.WriteLine(e.ToString());
                 //await Application.Current.MainPage.DisplayAlert("Error", "Check your Internet connection", "OK");
             }
@@ -90,7 +101,7 @@ namespace FSMChildVersion.Core.ViewModels
             {
                 IsBusy = false;
                 if (showLoading)
-                    PageDialog.HideLoading();
+                    PageDialog?.HideLoading();
             }
         }
 

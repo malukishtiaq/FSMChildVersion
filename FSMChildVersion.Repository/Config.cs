@@ -21,6 +21,6 @@ namespace FSMChildVersion.Repository
             }
         }
 
-        public static string LocalDBFile => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "FSMSQLite1.db"); //
+        public static string LocalDBFile => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "FSMSQLite2.db"); //
     }
 }

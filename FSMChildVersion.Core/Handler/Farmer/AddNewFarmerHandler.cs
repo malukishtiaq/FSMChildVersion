@@ -1,6 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
-using FSMChildVersion.Common.Model.Farmer;
+using FSMChildVersion.Common.RequestResponseModel.Farmer;
 using FSMChildVersion.Service.Services;
 using MediatR;
 

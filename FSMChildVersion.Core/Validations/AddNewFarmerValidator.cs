@@ -1,5 +1,5 @@
 using FluentValidation;
-using FSMChildVersion.Common.Model.Farmer;
+using FSMChildVersion.Common.RequestResponseModel.Farmer;
 
 namespace FSMChildVersion.Core.Validations
 {
@@ -9,8 +9,8 @@ namespace FSMChildVersion.Core.Validations
         {
             RuleFor(c => c.MobileNo).NotEmpty().WithMessage("Mobile no should not be empty.");
             RuleFor(c => c.FarmerName).NotEmpty().WithMessage("Farmer name should not be empty.");
-            RuleFor(c => c.Area).NotEmpty().WithMessage("Location should not be empty.");
-            RuleFor(c => c.Acre).NotEmpty().WithMessage("Crop should not be empty.");
+            RuleFor(c => c.Area).NotEmpty().WithMessage("Area should not be empty.");
+            RuleFor(c => c.Acre).NotEmpty().WithMessage("Acre should not be empty.");
         }
     }
 }

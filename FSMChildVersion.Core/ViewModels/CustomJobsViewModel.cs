@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
-using FSMChildVersion.Common.Model;
+using FSMChildVersion.Common.RequestResponseModel;
 using Xamarin.Forms;
 
 namespace FSMChildVersion.Core.ViewModels

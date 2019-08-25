@@ -47,7 +47,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FSMChildVersion.Common\FSMChildVersion.Common.csproj" />
-    <ProjectReference Include="..\FSMChildVersion.Repository\FSMChildVersion.Repository.csproj" />
     <ProjectReference Include="..\FSMChildVersion.Service\FSMChildVersion.Service.csproj" />
   </ItemGroup>
 

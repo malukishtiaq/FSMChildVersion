@@ -1,8 +1,8 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using FSMChildVersion.Common.Model;
-using FSMChildVersion.Common.Model.Login;
+using FSMChildVersion.Common.RequestResponseModel;
+using FSMChildVersion.Common.RequestResponseModel.Login;
 using FSMChildVersion.Repository.APIManager;
 using FSMChildVersion.Repository.DomainModels;
 

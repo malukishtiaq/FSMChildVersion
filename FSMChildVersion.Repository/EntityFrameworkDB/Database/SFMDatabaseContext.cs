@@ -11,6 +11,11 @@ namespace FSMChildVersion.Repository.EntityFramework.Database
         public DbSet<MakeUp> MakeUp { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<Attendance> Attendance { get; set; }
+        public DbSet<Farmer> Farmer { get; set; }
+        public DbSet<FarmerMeeting> FarmerMeeting { get; set; }
+        public DbSet<FarmerVisit> FarmerVisit { get; set; }
+        public DbSet<Feedback> Feedback { get; set; }
+        public DbSet<FieldDay> FieldDay { get; set; }
         public SFMDatabaseContext()
         {
         }

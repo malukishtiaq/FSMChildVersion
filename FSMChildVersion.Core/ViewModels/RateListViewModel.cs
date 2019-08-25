@@ -1,7 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using FSMChildVersion.Common.Model;
+using FSMChildVersion.Common.RequestResponseModel;
 using MvvmCross.Commands;
 using MvvmCross.Navigation;
 using MvvmCross.ViewModels;

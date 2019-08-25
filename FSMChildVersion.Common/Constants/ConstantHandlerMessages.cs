@@ -16,5 +16,7 @@ namespace FSMChildVersion
         public const string AddCheckInFalg = "Could not save attendance related check in settings";
         public const string AddNewFarmerFailure = "Could not save farmer";
         public const string AddNewFarmerSuccess = "Farmer saved successfully";
+        public const string AddNewFielddayFailure = "Could not add new field day";
+        public const string AddNewFielddaySuccess = "Field day saved successfully";
     }
 }

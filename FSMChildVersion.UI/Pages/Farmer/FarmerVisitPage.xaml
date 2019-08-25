@@ -3,9 +3,11 @@
     x:Class="FSMChildVersion.UI.Pages.Farmer.FarmerVisitPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:FSMChildVersion.UI.Behavior;assembly=FSMChildVersion.Core"
     xmlns:local="clr-namespace:FSMChildVersion.UI.Pages.Farmer"
     xmlns:mvxViews="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
     xmlns:pages="clr-namespace:FSMChildVersion.UI.Pages"
+    xmlns:popups="clr-namespace:FSMChildVersion.UI.Pages.Popups"
     xmlns:viewModel="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
     x:TypeArguments="viewModel:FarmerVisitViewModel"
     NavigationPage.HasNavigationBar="False">
@@ -19,10 +21,71 @@
                 Orientation="Vertical"
                 Style="{StaticResource DefaultMarginForStacklayoutStyle}"
                 VerticalOptions="StartAndExpand">
-                <Entry Margin="10" Placeholder="Mobile #" />
-                <Entry Margin="10" Placeholder="Farmer Name" />
-                <Entry Margin="10" Placeholder="Crop" />
-                <Entry Margin="10" Placeholder="Location" />
+                <popups:ResponseView />
+                <Entry
+                    Margin="10"
+                    Placeholder="Mobile #"
+                    ReturnType="Next"
+                    Text="{Binding MobileNo.Value}">
+                    <Entry.Behaviors>
+                        <behaviors:EventToCommandBehavior
+                            Command="{Binding ClearValidationCommand}"
+                            CommandParameter="MobileNo"
+                            EventName="Focused" />
+                    </Entry.Behaviors>
+                </Entry>
+                <Label
+                    HorizontalOptions="End"
+                    Style="{StaticResource ErrorLabelStyle}"
+                    Text="{Binding MobileNo.FirstError}" />
+                <Entry
+                    Margin="10"
+                    Placeholder="Farmer Name"
+                    ReturnType="Next"
+                    Text="{Binding FarmerName.Value}">
+                    <Entry.Behaviors>
+                        <behaviors:EventToCommandBehavior
+                            Command="{Binding ClearValidationCommand}"
+                            CommandParameter="FarmerName"
+                            EventName="Focused" />
+                    </Entry.Behaviors>
+                </Entry>
+                <Label
+                    HorizontalOptions="End"
+                    Style="{StaticResource ErrorLabelStyle}"
+                    Text="{Binding FarmerName.FirstError}" />
+                <Entry
+                    Margin="10"
+                    Placeholder="Crop"
+                    ReturnType="Next"
+                    Text="{Binding Crop.Value}">
+                    <Entry.Behaviors>
+                        <behaviors:EventToCommandBehavior
+                            Command="{Binding ClearValidationCommand}"
+                            CommandParameter="Crop"
+                            EventName="Focused" />
+                    </Entry.Behaviors>
+                </Entry>
+                <Label
+                    HorizontalOptions="End"
+                    Style="{StaticResource ErrorLabelStyle}"
+                    Text="{Binding Crop.FirstError}" />
+                <Entry
+                    Margin="10"
+                    Placeholder="Location"
+                    ReturnType="Next"
+                    Text="{Binding Location.Value}">
+                    <Entry.Behaviors>
+                        <behaviors:EventToCommandBehavior
+                            Command="{Binding ClearValidationCommand}"
+                            CommandParameter="Location"
+                            EventName="Focused" />
+                    </Entry.Behaviors>
+                </Entry>
+                <Label
+                    HorizontalOptions="End"
+                    Style="{StaticResource ErrorLabelStyle}"
+                    Text="{Binding Location.FirstError}" />
                 <StackLayout
                     Margin="10"
                     Orientation="Vertical"

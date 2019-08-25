@@ -13,12 +13,6 @@
     Title="Main page"
     x:TypeArguments="viewModels:LoginViewModel"
     mc:Ignorable="d">
-    <ContentPage.Resources>
-        <Style x:Key="ErrorLabelStyle" TargetType="{x:Type Label}">
-            <Setter Property="TextColor" Value="{StaticResource ErrorColor}" />
-            <Setter Property="Margin" Value="0,-5,0,0" />
-        </Style>
-    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView
             Padding="0"
