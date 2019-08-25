@@ -117,6 +117,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="System.Reflection.Emit" Version="4.3.0">
+      <ExcludeAssets>all</ExcludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore">
       <Version>2.2.6</Version>
     </PackageReference>
@@ -280,6 +283,15 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\fontawesome-webfont.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hamburger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hamburger%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hamburger%403x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
