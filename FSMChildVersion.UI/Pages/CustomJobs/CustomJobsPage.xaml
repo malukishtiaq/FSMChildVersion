@@ -61,6 +61,7 @@
                     <Label
                         HorizontalOptions="CenterAndExpand"
                         IsVisible="{Binding PendingMessageCountVisible}"
+                        Style="{StaticResource LabelStyle}" 
                         Text="{Binding PendingMessageCount}"
                         TextColor="{DynamicResource primary}"
                         VerticalTextAlignment="Center" />

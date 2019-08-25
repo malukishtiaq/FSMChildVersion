@@ -88,6 +88,22 @@
     <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+    <BundleResource Include="Resources\fa-brands-400.eot" />
+    <BundleResource Include="Resources\fa-brands-400.ttf" />
+    <BundleResource Include="Resources\fa-brands-400.woff" />
+    <BundleResource Include="Resources\fa-brands-400.woff2" />
+    <BundleResource Include="Resources\fa-regular-400.eot" />
+    <BundleResource Include="Resources\fa-regular-400.ttf" />
+    <BundleResource Include="Resources\fa-regular-400.woff" />
+    <BundleResource Include="Resources\fa-regular-400.woff2" />
+    <BundleResource Include="Resources\fa-solid-900.eot" />
+    <BundleResource Include="Resources\fa-solid-900.ttf" />
+    <BundleResource Include="Resources\fa-solid-900.woff" />
+    <BundleResource Include="Resources\fa-solid-900.woff2" />
+    <BundleResource Include="Resources\fontawesome-webfont.eot" />
+    <BundleResource Include="Resources\fontawesome-webfont.woff" />
+    <BundleResource Include="Resources\fontawesome-webfont.woff2" />
+    <BundleResource Include="Resources\FontAwesome.ttf" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard">
@@ -135,6 +151,9 @@
       <Version>2.4.11.982</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
+      <Version>4.2.0.709249</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms.Visual.Material">
       <Version>4.2.0.709249</Version>
     </PackageReference>
   </ItemGroup>
@@ -249,6 +268,18 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_arrow_drop_down%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\fa-brands-400.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\fa-regular-400.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\fa-solid-900.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\fontawesome-webfont.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -27,6 +27,7 @@
         <Label
             Grid.Row="0"
             Grid.Column="1"
+            Style="{StaticResource LabelStyle}" 
             Text="Send"
             VerticalTextAlignment="Center">
             <Label.GestureRecognizers>

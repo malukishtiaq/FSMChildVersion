@@ -9,7 +9,8 @@
     xmlns:pages="clr-namespace:FSMChildVersion.UI.Pages"
     xmlns:viewModel="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
     x:TypeArguments="viewModel:FeedbackViewModel"
-    NavigationPage.HasNavigationBar="False">
+    NavigationPage.HasNavigationBar="False"
+    Visual="Material">
     <ScrollView>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <ContentView>
@@ -21,13 +22,22 @@
                 Orientation="Vertical"
                 Style="{StaticResource DefaultMarginForStacklayoutStyle}"
                 VerticalOptions="StartAndExpand">
-                <Entry Margin="10" Placeholder="Farmer Name" />
-                <Entry Margin="10" Placeholder="Mobile #" />
+                <Entry
+                    Margin="10"
+                    Placeholder="Farmer Name"
+                    Style="{StaticResource EntryStyle}" />
+                <Entry
+                    Margin="10"
+                    Placeholder="Mobile #"
+                    Style="{StaticResource EntryStyle}" />
                 <StackLayout
                     Margin="10"
                     Padding="0"
                     Spacing="0">
-                    <Label Margin="10,0,0,0" Text="Crop" />
+                    <Label
+                        Margin="10,0,0,0"
+                        Style="{StaticResource LabelStyle}" 
+                        Text="Crop" />
                     <customcontrols:CustomPicker
                         Title="Pick an Item"
                         Margin="10,0,10,10"
@@ -40,7 +50,10 @@
                     Margin="10"
                     Padding="0"
                     Spacing="0">
-                    <Label Margin="10,0,0,0" Text="Product" />
+                    <Label
+                        Margin="10,0,0,0"
+                        Style="{StaticResource LabelStyle}" 
+                        Text="Product" />
                     <customcontrols:CustomPicker
                         Title="Pick an Item"
                         Margin="10,0,10,10"

@@ -29,18 +29,27 @@
                     SelectedIndex="{Binding SelectedRole}"
                     TextColor="White" />
                 <StackLayout Margin="10" Orientation="Horizontal">
-                    <Label Text="From" VerticalTextAlignment="End" />
+                    <Label
+                        Style="{StaticResource LabelStyle}" 
+                        Text="From"
+                        VerticalTextAlignment="End" />
                     <DatePicker HorizontalOptions="FillAndExpand" />
                 </StackLayout>
                 <StackLayout Margin="10" Orientation="Horizontal">
-                    <Label Text="To" VerticalTextAlignment="End" />
+                    <Label
+                        Style="{StaticResource LabelStyle}" 
+                        Text="To"
+                        VerticalTextAlignment="End" />
                     <DatePicker
                         Margin="20,0,0,0"
                         FlowDirection="RightToLeft"
                         HorizontalOptions="FillAndExpand" />
                 </StackLayout>
 
-                <Label Margin="10" Text="Reason For Leave" />
+                <Label
+                    Margin="10"
+                    Style="{StaticResource LabelStyle}" 
+                    Text="Reason For Leave" />
                 <Editor Margin="10,0,10,0" HeightRequest="75" />
 
                 <Button

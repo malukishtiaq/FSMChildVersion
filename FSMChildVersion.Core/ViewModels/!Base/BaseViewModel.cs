@@ -52,7 +52,7 @@ namespace FSMChildVersion.Core.ViewModels
             ///this delay was added, so that main activity code can initializes Acr.Dialog. And than it can resolve
             ///the Acr.Dialog instance from DI.
             ///there is problem with this approach. This will always add a delay of few milliseconds. yet to be handled
-            _ = Task.Delay(1000).ContinueWith(t => PageDialog = Mvx.IoCProvider.Resolve<IUserDialogs>());
+            _ = Task.Delay(3000).ContinueWith(t => PageDialog = Mvx.IoCProvider.Resolve<IUserDialogs>());
         }
 
         #region Internet Connection

@@ -11,6 +11,7 @@
     <Label
         Margin="20"
         HorizontalOptions="CenterAndExpand"
+        Style="{StaticResource LabelStyle}" 
         Text="{Binding ResponseMessage}"
         TextColor="White" />
 </StackLayout>

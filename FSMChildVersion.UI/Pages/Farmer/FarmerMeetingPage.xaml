@@ -10,7 +10,8 @@
     xmlns:popups="clr-namespace:FSMChildVersion.UI.Pages.Popups"
     xmlns:viewModel="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
     x:TypeArguments="viewModel:FarmerMeetingViewModel"
-    NavigationPage.HasNavigationBar="False">
+    NavigationPage.HasNavigationBar="False"
+    Visual="Material">
     <ScrollView>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <ContentView>
@@ -26,6 +27,7 @@
                     Margin="0,30,0,0"
                     Placeholder="Farmer Name"
                     ReturnType="Next"
+                    Style="{StaticResource EntryStyle}"
                     Text="{Binding FarmerName.Value}">
                     <Entry.Behaviors>
                         <behaviors:EventToCommandBehavior
@@ -42,6 +44,7 @@
                     Margin="0"
                     Placeholder="Mobile #"
                     ReturnType="Next"
+                    Style="{StaticResource EntryStyle}"
                     Text="{Binding MobileNo.Value}">
                     <Entry.Behaviors>
                         <behaviors:EventToCommandBehavior
@@ -58,6 +61,7 @@
                     Margin="0"
                     Placeholder="NoOfParticipent"
                     ReturnType="Next"
+                    Style="{StaticResource EntryStyle}"
                     Text="{Binding NoOfParticipent.Value}">
                     <Entry.Behaviors>
                         <behaviors:EventToCommandBehavior
@@ -74,6 +78,7 @@
                     Margin="0"
                     Placeholder="Area"
                     ReturnType="Next"
+                    Style="{StaticResource EntryStyle}"
                     Text="{Binding Area.Value}">
                     <Entry.Behaviors>
                         <behaviors:EventToCommandBehavior

@@ -44,7 +44,7 @@ namespace FSMChildVersion.Repository.APIManager
             ///this delay was added, so that main activity code can initializes Acr.Dialog. And than it can resolve
             ///the Acr.Dialog instance from DI.
             ///there is problem with this approach. This will always add a delay of few milliseconds. yet to be handled
-            _ = Task.Delay(2000).ContinueWith(t => UserDialogs = Mvx.IoCProvider.Resolve<IUserDialogs>());
+            _ = Task.Delay(3000).ContinueWith(t => UserDialogs = Mvx.IoCProvider.Resolve<IUserDialogs>());
         }
 
         private void OnConnectivityChanged(object sender, ConnectivityChangedEventArgs e)

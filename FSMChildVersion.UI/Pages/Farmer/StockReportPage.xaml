@@ -8,7 +8,8 @@
     xmlns:pages="clr-namespace:FSMChildVersion.UI.Pages"
     xmlns:viewModel="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
     x:TypeArguments="viewModel:StockReportViewModel"
-    NavigationPage.HasNavigationBar="False">
+    NavigationPage.HasNavigationBar="False"
+    Visual="Material">
     <ScrollView>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <ContentView>

@@ -37,7 +37,10 @@
                     SelectedIndex="{Binding SelectedRole}"
                     TextColor="White" />
 
-                <Entry Margin="10" Placeholder="Enter Quantity" />
+                <Entry
+                    Margin="10"
+                    Placeholder="Enter Quantity"
+                    Style="{StaticResource EntryStyle}" />
 
                 <controls:CustomPicker
                     Title="Pick an Item"

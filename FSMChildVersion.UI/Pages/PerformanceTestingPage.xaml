@@ -10,5 +10,6 @@
     <Label
         BackgroundColor="Red"
         FontSize="100"
+        Style="{StaticResource LabelStyle}"
         Text="Hello" />
 </mvxViews:MvxContentPage>

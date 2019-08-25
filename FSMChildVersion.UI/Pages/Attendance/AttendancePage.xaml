@@ -8,7 +8,8 @@
     xmlns:pages="clr-namespace:FSMChildVersion.UI.Pages"
     xmlns:popups="clr-namespace:FSMChildVersion.UI.Pages.Popups"
     x:TypeArguments="local:AttendanceViewModel"
-    NavigationPage.HasNavigationBar="False">
+    NavigationPage.HasNavigationBar="False"
+    Visual="Material">
     <ScrollView>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <ContentView>
@@ -23,6 +24,7 @@
                 <Label
                     FontSize="24"
                     HorizontalOptions="CenterAndExpand"
+                    Style="{StaticResource LabelStyle}"
                     Text="Check-In-Out"
                     TextColor="{StaticResource LightGreenColor}"
                     VerticalOptions="Start" />

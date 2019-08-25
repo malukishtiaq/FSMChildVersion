@@ -25,7 +25,10 @@
                     Padding="10"
                     BackgroundColor="{StaticResource PrimaryColor}"
                     HasShadow="False">
-                    <Label Text="INSECTICIDES" TextColor="White" />
+                    <Label
+                        Style="{StaticResource LabelStyle}" 
+                        Text="INSECTICIDES"
+                        TextColor="White" />
                 </Frame>
                 <ListView HasUnevenRows="True" ItemsSource="{Binding InsecticidesList}">
                     <ListView.Header>
@@ -49,6 +52,7 @@
                                     FontAttributes="Bold"
                                     FontSize="Small"
                                     HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource LabelStyle}" 
                                     Text="Product Name" />
                             </Frame>
                             <Frame
@@ -60,12 +64,13 @@
                                     FontAttributes="Bold"
                                     FontSize="Small"
                                     HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource LabelStyle}" 
                                     Text="Rate" />
                             </Frame>
                         </Grid>
                     </ListView.Header>
                     <ListView.Footer>
-                        <Label Text="" />
+                        <Label Style="{StaticResource LabelStyle}" Text="" />
                     </ListView.Footer>
                     <ListView.Behaviors>
                         <behaviors:EventToCommandBehavior
@@ -96,7 +101,7 @@
                                         HasShadow="False"
                                         HorizontalOptions="FillAndExpand"
                                         OutlineColor="Transparent">
-                                        <Label HorizontalOptions="Center">
+                                        <Label HorizontalOptions="Center" Style="{StaticResource LabelStyle}" >
                                             <Label.FormattedText>
                                                 <FormattedString>
                                                     <Span
@@ -118,7 +123,10 @@
                                         HorizontalOptions="FillAndExpand"
                                         IsClippedToBounds="True"
                                         OutlineColor="Transparent">
-                                        <Label HorizontalOptions="Center" Text="{Binding Rate}" />
+                                        <Label
+                                            HorizontalOptions="Center"
+                                            Style="{StaticResource LabelStyle}" 
+                                            Text="{Binding Rate}" />
                                     </Frame>
                                 </Grid>
                             </ViewCell>
@@ -131,7 +139,10 @@
                     Padding="10"
                     BackgroundColor="{StaticResource PrimaryColor}"
                     HasShadow="False">
-                    <Label Text="WEEDCIDES" TextColor="White" />
+                    <Label
+                        Style="{StaticResource LabelStyle}" 
+                        Text="WEEDCIDES"
+                        TextColor="White" />
                 </Frame>
                 <ListView HasUnevenRows="True" ItemsSource="{Binding WeedCidesList}">
                     <ListView.Behaviors>
@@ -163,7 +174,7 @@
                                         HasShadow="False"
                                         HorizontalOptions="FillAndExpand"
                                         OutlineColor="Transparent">
-                                        <Label HorizontalOptions="Center">
+                                        <Label HorizontalOptions="Center" Style="{StaticResource LabelStyle}" >
                                             <Label.FormattedText>
                                                 <FormattedString>
                                                     <Span
@@ -185,7 +196,10 @@
                                         HorizontalOptions="FillAndExpand"
                                         IsClippedToBounds="True"
                                         OutlineColor="Transparent">
-                                        <Label HorizontalOptions="Center" Text="{Binding Rate}" />
+                                        <Label
+                                            HorizontalOptions="Center"
+                                            Style="{StaticResource LabelStyle}" 
+                                            Text="{Binding Rate}" />
                                     </Frame>
                                 </Grid>
                             </ViewCell>
@@ -212,6 +226,7 @@
                                     FontAttributes="Bold"
                                     FontSize="Small"
                                     HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource LabelStyle}" 
                                     Text="Product Name" />
                             </Frame>
                             <Frame
@@ -223,12 +238,13 @@
                                     FontAttributes="Bold"
                                     FontSize="Small"
                                     HorizontalOptions="StartAndExpand"
+                                    Style="{StaticResource LabelStyle}" 
                                     Text="Rate" />
                             </Frame>
                         </Grid>
                     </ListView.Header>
                     <ListView.Footer>
-                        <Label Text="" />
+                        <Label Style="{StaticResource LabelStyle}" Text="" />
                     </ListView.Footer>
                 </ListView>
             </StackLayout>

@@ -7,6 +7,7 @@ using FSMChildVersion.Core.ViewModels.Main;
 using MvvmCross;
 using MvvmCross.Forms.Platforms.Android.Views;
 using MvvmCross.Platforms.Android;
+using Xamarin.Forms;
 
 namespace FSMChildVersion.Droid
 {
@@ -22,6 +23,8 @@ namespace FSMChildVersion.Droid
             
             Rg.Plugins.Popup.Popup.Init(this, bundle);
             CachedImageRenderer.Init(true);
+            FormsMaterial.Init(this, bundle);
+
             base.OnCreate(bundle);
         }
         public override void OnBackPressed()

@@ -10,6 +10,35 @@
     <ResourceDictionary.MergedDictionaries>
         <styles:ColorThemeOne />
     </ResourceDictionary.MergedDictionaries>
+    <!--  FONTS  -->
+    <OnPlatform
+        x:Key="platformBasedIconFontFamilies"
+        x:TypeArguments="x:String"
+        Android="fontawesome-webfont.ttf#Font Awesome 4.7.0"
+        iOS="FontAwesome" />
+    <OnPlatform
+        x:Key="MediumFontFamily"
+        x:TypeArguments="x:String"
+        Android="fa-regular-400.ttf#Font Awesome 5 Free Regular"
+        iOS="Font Awesome 5 Free" />
+    <!--<OnPlatform
+        x:Key="MontserratRegular"
+        x:TypeArguments="x:String"
+        Android="fontawesome-webfont.ttf#Font Awesome 4.7.0"
+        iOS="Montserrat-Regular" />
+
+    <OnPlatform
+        x:Key="MontserratBold"
+        x:TypeArguments="x:String"
+        Android="fontawesome-webfont.ttf#Font Awesome 4.7.0"
+        iOS="Montserrat-Bold" />
+
+    <OnPlatform
+        x:Key="SourceSansProRegular"
+        x:TypeArguments="x:String"
+        Android="fontawesome-webfont.ttf#Font Awesome 4.7.0"
+        iOS="SourceSansPro-Regular" />
+    -->
 
     <OnPlatform
         x:Key="PageSpacing"
@@ -52,17 +81,36 @@
     </Style>
 
     <Style x:Key="MainTitleStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource MediumFontFamily}" />
         <Setter Property="FontSize" Value="17" />
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
     </Style>
 
     <Style x:Key="NormalTitleStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource MediumFontFamily}" />
         <Setter Property="FontSize" Value="13" />
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
     </Style>
 
     <Style x:Key="ErrorLabelStyle" TargetType="{x:Type Label}">
         <Setter Property="TextColor" Value="{StaticResource ErrorColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource MediumFontFamily}" />
         <Setter Property="Margin" Value="0,-5,0,0" />
     </Style>
+
+    <Style x:Key="EntryStyle" TargetType="{x:Type Entry}">
+        <Setter Property="FontFamily" Value="{StaticResource MediumFontFamily}" />
+        <Setter Property="BackgroundColor" Value="White" />
+    </Style>
+
+    <Style x:Key="LabelStyle" TargetType="{x:Type Label}">
+        <Setter Property="FontFamily" Value="{StaticResource MediumFontFamily}" />
+    </Style>
+
 </ResourceDictionary>
+
+
+<!--
+    Android="sans-serif-medium"
+    iOS="HelveticaNeue-Medium"
+--> 

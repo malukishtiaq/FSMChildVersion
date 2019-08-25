@@ -19,7 +19,7 @@ namespace FSMChildVersion.Core.ViewModels
         public override void Prepare()
         {
             var allFarmersRequest = new GetAllFarmersRequest();
-            List<GetAllFarmersResponse> result = mediator.Send(allFarmersRequest).Result;
+            List<GetAllFarmersResponse> result = null;// mediator.Send(allFarmersRequest).Result;
             //FarmerList = result.ToObservableCollection();
         }
 

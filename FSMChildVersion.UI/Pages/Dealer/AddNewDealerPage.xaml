@@ -6,17 +6,30 @@
     xmlns:local="clr-namespace:FSMChildVersion.UI.Pages.AreaManager"
     xmlns:mvxViews="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
     xmlns:viewModel="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
-    x:TypeArguments="viewModel:AddNewDealerViewModel" NavigationPage.HasNavigationBar="False">
+    x:TypeArguments="viewModel:AddNewDealerViewModel"
+    NavigationPage.HasNavigationBar="False">
     <ScrollView>
         <StackLayout
             HorizontalOptions="FillAndExpand"
             Orientation="Vertical"
             Style="{StaticResource DefaultMarginForStacklayoutStyle}"
             VerticalOptions="StartAndExpand">
-            <Entry Margin="10" Placeholder="Mobile #" />
-            <Entry Margin="10" Placeholder="Dealer Name" />
-            <Entry Margin="10" Placeholder="Business Address" />
-            <Entry Margin="10" Placeholder="Area Pocket" />
+            <Entry
+                Margin="10"
+                Placeholder="Mobile #"
+                Style="{StaticResource EntryStyle}" />
+            <Entry
+                Margin="10"
+                Placeholder="Dealer Name"
+                Style="{StaticResource EntryStyle}" />
+            <Entry
+                Margin="10"
+                Placeholder="Business Address"
+                Style="{StaticResource EntryStyle}" />
+            <Entry
+                Margin="10"
+                Placeholder="Area Pocket"
+                Style="{StaticResource EntryStyle}" />
             <StackLayout
                 Margin="10"
                 Orientation="Vertical"

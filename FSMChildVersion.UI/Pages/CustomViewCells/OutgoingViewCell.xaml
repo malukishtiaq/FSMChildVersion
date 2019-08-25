@@ -21,12 +21,12 @@
             HorizontalOptions="FillAndExpand"
             Rotation="180">
             <StackLayout Orientation="Vertical">
-                <Label Text="{Binding Text}" />
+                <Label Style="{StaticResource LabelStyle}"  Text="{Binding Text}" />
                 <StackLayout Orientation="Horizontal">
                     <!--  Add span.  -->
-                    <Label HorizontalTextAlignment="Center" Text="name" />
-                    <Label HorizontalTextAlignment="Center" Text=" . " />
-                    <Label HorizontalTextAlignment="Center" Text="51 Min" />
+                    <Label Style="{StaticResource LabelStyle}"  HorizontalTextAlignment="Center" Text="name" />
+                    <Label Style="{StaticResource LabelStyle}"  HorizontalTextAlignment="Center" Text=" . " />
+                    <Label Style="{StaticResource LabelStyle}"  HorizontalTextAlignment="Center" Text="51 Min" />
                 </StackLayout>
             </StackLayout>
         </Frame>

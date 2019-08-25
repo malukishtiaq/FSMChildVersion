@@ -57,6 +57,7 @@
                         HorizontalOptions="FillAndExpand">
                         <Label
                             FontAttributes="Bold"
+                            Style="{StaticResource LabelStyle}" 
                             Text="Rout Plan"
                             TextColor="Black" />
                     </Frame>
@@ -67,7 +68,10 @@
                         BorderColor="LightGray"
                         HasShadow="False"
                         HorizontalOptions="FillAndExpand">
-                        <Label HorizontalTextAlignment="Center" Text="Add Bashirabad, Mogli, Joher Town, Mogli, Joher Town" />
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Style="{StaticResource LabelStyle}" 
+                            Text="Add Bashirabad, Mogli, Joher Town, Mogli, Joher Town" />
                     </Frame>
                 </StackLayout>
             </Frame>

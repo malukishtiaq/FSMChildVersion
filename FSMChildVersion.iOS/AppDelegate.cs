@@ -1,6 +1,7 @@
 using Foundation;
 using MvvmCross.Forms.Platforms.Ios.Core;
 using UIKit;
+using Xamarin.Forms;
 
 namespace FSMChildVersion.iOS
 {
@@ -11,6 +12,7 @@ namespace FSMChildVersion.iOS
         {
             Rg.Plugins.Popup.Popup.Init();
             SQLitePCL.Batteries_V2.Init();
+            FormsMaterial.Init();
             return base.FinishedLaunching(app, options);
         }
     }

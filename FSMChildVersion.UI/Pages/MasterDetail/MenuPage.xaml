@@ -27,6 +27,7 @@
                 <Label
                     Margin="10,10,10,0"
                     FontSize="Large"
+                    Style="{StaticResource LabelStyle}" 
                     Text="User Profile"
                     TextColor="White"
                     VerticalOptions="Center" />
@@ -55,6 +56,7 @@
                             <StackLayout HeightRequest="50">
                                 <Label
                                     Margin="20,0,0,0"
+                                    Style="{StaticResource LabelStyle}" 
                                     Text="{Binding}"
                                     TextColor="White"
                                     VerticalOptions="CenterAndExpand" />

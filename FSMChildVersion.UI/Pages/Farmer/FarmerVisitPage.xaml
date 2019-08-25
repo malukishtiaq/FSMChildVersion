@@ -10,7 +10,8 @@
     xmlns:popups="clr-namespace:FSMChildVersion.UI.Pages.Popups"
     xmlns:viewModel="clr-namespace:FSMChildVersion.Core.ViewModels;assembly=FSMChildVersion.Core"
     x:TypeArguments="viewModel:FarmerVisitViewModel"
-    NavigationPage.HasNavigationBar="False">
+    NavigationPage.HasNavigationBar="False"
+    Visual="Material">
     <ScrollView>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <ContentView>
@@ -26,6 +27,7 @@
                     Margin="10"
                     Placeholder="Mobile #"
                     ReturnType="Next"
+                    Style="{StaticResource EntryStyle}"
                     Text="{Binding MobileNo.Value}">
                     <Entry.Behaviors>
                         <behaviors:EventToCommandBehavior
@@ -38,9 +40,8 @@
                     HorizontalOptions="End"
                     Style="{StaticResource ErrorLabelStyle}"
                     Text="{Binding MobileNo.FirstError}" />
-                <Entry
-                    Margin="10"
-                    Placeholder="Farmer Name"
+                <Entry Margin="10"
+                    Placeholder="FarmerName"
                     ReturnType="Next"
                     Text="{Binding FarmerName.Value}">
                     <Entry.Behaviors>
@@ -58,6 +59,7 @@
                     Margin="10"
                     Placeholder="Crop"
                     ReturnType="Next"
+                    Style="{StaticResource EntryStyle}"
                     Text="{Binding Crop.Value}">
                     <Entry.Behaviors>
                         <behaviors:EventToCommandBehavior
@@ -74,6 +76,7 @@
                     Margin="10"
                     Placeholder="Location"
                     ReturnType="Next"
+                    Style="{StaticResource EntryStyle}"
                     Text="{Binding Location.Value}">
                     <Entry.Behaviors>
                         <behaviors:EventToCommandBehavior
